@@ -316,7 +316,7 @@
 			<div class="qt-particles" id="particlesfooter" data-color="#ffffff" data-opacity="0.2" data-speed="1"></div>
 		</footer>
 		<!-- ====================== FOOTER END ================================================ -->
-		<!-- footer section end  ================================ -->
+		<!-- fodoter section end  ================================ -->
 
 		<!-- QT FOOTER ================================ -->
 		<script src="resources/js/bootsrap.min.js"></script>
