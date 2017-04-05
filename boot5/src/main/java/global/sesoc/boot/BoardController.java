@@ -107,7 +107,7 @@ public class BoardController {
 
 	//[글 검색] Board searchBoard(String search) return "shared";
 	
-	//[댓글 등록] reply writeReply(Reply reply) return "result";		//(ajax)성공여부 전송
+	//[댓글 등록] int writeReply(Reply reply) return "result";		//(ajax)성공여부 전송
 	
 	//[댓글 수정] int updateReply(Reply reply) return "result";
 	

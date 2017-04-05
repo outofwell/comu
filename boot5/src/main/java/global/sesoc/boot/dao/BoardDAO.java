@@ -3,6 +3,7 @@ package global.sesoc.boot.dao;
 import java.util.ArrayList;
 
 import global.sesoc.boot.vo.Board;
+import global.sesoc.boot.vo.Reply;
 
 public interface BoardDAO {
 	
@@ -23,4 +24,13 @@ public interface BoardDAO {
 	
 	//글 검색
 	public Board searchBoard(String search) throws Exception;
+	
+	//댓글 등록
+	public int writeReply(Reply reply) throws Exception;
+	
+	//댓글 수정
+	public int updateReply(Reply reply) throws Exception;
+	
+	//댓글 삭제
+	public int deleteReply(int Replynum) throws Exception;
 }

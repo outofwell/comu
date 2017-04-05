@@ -8,6 +8,9 @@
  		<typeAlias type="global.sesoc.boot.vo.User" alias="User"/>
  		<typeAlias type="global.sesoc.boot.vo.Board" alias="Board"/>
  		<typeAlias type="global.sesoc.boot.vo.Files" alias="File"/>
+ 		<typeAlias type="global.sesoc.boot.vo.Reply" alias="Reply"/>
+ 		<typeAlias type="global.sesoc.boot.vo.Like" alias="Like"/>
+ 		<typeAlias type="global.sesoc.boot.vo.Subscribe" alias="Subscribe"/>
  	</typeAliases>
  	
  	<!-- 매퍼 파일 위치 설정 -->
