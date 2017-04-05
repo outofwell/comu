@@ -96,7 +96,32 @@ public class BoardRepository {
 	}
 	
 	//댓글 수정
-	
+	public int updateReply(Reply reply) {
+		BoardDAO dao = sqlSession.getMapper(BoardDAO.class);
+		
+		int result = 0;
+		
+		try {
+			dao.updateReply(reply);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 	
 	//댓글 삭제
+	public int deleteReply(int Replynum) {
+		BoardDAO dao = sqlSession.getMapper(BoardDAO.class);
+		
+		int result = 0;
+		
+		try {
+			dao.deleteReply(Replynum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 }

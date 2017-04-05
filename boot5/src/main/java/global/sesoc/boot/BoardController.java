@@ -17,6 +17,7 @@ import global.sesoc.boot.repository.UserRepository;
 import global.sesoc.boot.util.FileService;
 import global.sesoc.boot.vo.Board;
 import global.sesoc.boot.vo.Files;
+import global.sesoc.boot.vo.Reply;
 
 @Controller
 public class BoardController {
@@ -108,10 +109,25 @@ public class BoardController {
 	//[글 검색] Board searchBoard(String search) return "shared";
 	
 	//[댓글 등록] int writeReply(Reply reply) return "result";		//(ajax)성공여부 전송
+	@RequestMapping(value="/writeReply", method = RequestMethod.GET)
+	public String writeReply(Reply reply) {
+		boardRepository.writeReply(reply);
+		return "result";
+	}
 	
 	//[댓글 수정] int updateReply(Reply reply) return "result";
+	@RequestMapping(value="/updateReply", method = RequestMethod.GET)
+	public String updateReply(Reply reply) {
+		boardRepository.updateReply(reply);
+		return "result";
+	}
 	
 	//[댓글 삭제] int deleteReply(int Replynum) return "result";
+	@RequestMapping(value="deleteReply", method = RequestMethod.GET)
+	public String deleteReply(int Replynum) {
+		boardRepository.deleteReply(Replynum);
+		return "result";
+	}
 	
 	
 	
