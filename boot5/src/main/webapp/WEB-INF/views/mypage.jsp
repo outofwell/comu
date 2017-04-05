@@ -45,6 +45,22 @@
 			});
 			//fileList END=====
 				
+			//boardList START======
+			$.ajax({
+					type : "get",
+					url : "boardList",
+					success : function(resp) {
+						$.each(resp, function(index, item) {
+								var msg ='<div class="row" id="board"><div class="col-md-3">'
+								+'<img src="resources/covers/20170328.png" style="width: 60px; height: 60px;" /></div><div class="col-md-8">'
+								+item.title +'<hr><article>'
+								+item.content+'</article>'
+								$(".test").append(msg);
+						});
+					}
+			});
+			//fileList END=====	
+				
 	});
 		
 		
@@ -137,14 +153,14 @@ td, img {
 						<div class="col-md-6">
 							<!-- 게시글 시작-->
 							<h4>My Boards</h4>
+							<div class="test"></div>
 							<div class="row" id="board">
 								<div class="col-md-3">
 									<img src="http://placehold.it/80"
 										style="width: 80px; height: 80px;" />
-									<button class="btn btn-primary btn-xs">Song1</button>
 								</div>
-								<div class="col-md-6">
-									<button class="btn btn-primary btn-xs">board title</button>
+								<div class="col-md-8">
+									board title 1<hr>
 									<article>
 										<p>From this distant vantage point, the Earth might not
 											seem of any particular interest. But for us, it's different.
@@ -159,7 +175,7 @@ td, img {
 										<br>
 										<table>
 											<tr>
-												<td>idid :</td>
+												<td>id :</td>
 												<td>댓글내용~~~~~~~~~~~~~~~</td>
 											</tr>
 										</table>
@@ -167,11 +183,11 @@ td, img {
 										<button class="btn btn-primary btn-sm">등록</button>
 									</article>
 								</div>
-								<div class="col-md-3"></div>
+								<div class="col-md-1"></div>
 									<div class="checkbox">
 									<label>
 										<input type="checkbox" name="optionsCheckboxes"><br>
-										Unchecked
+										Un
 									</label>
 									</div>
 							</div>
