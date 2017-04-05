@@ -3,7 +3,9 @@ package global.sesoc.boot.dao;
 import java.util.ArrayList;
 
 import global.sesoc.boot.vo.Board;
+import global.sesoc.boot.vo.Like;
 import global.sesoc.boot.vo.Reply;
+import global.sesoc.boot.vo.Subscribe;
 
 public interface BoardDAO {
 	
@@ -33,4 +35,22 @@ public interface BoardDAO {
 	
 	//댓글 삭제
 	public int deleteReply(int Replynum) throws Exception;
+	
+	//좋아요 등록
+	public int like(Like like) throws Exception;
+
+	//좋아요 리스트(랭킹)
+	public ArrayList<Like> rankList() throws Exception;
+	
+	//좋아요 리스트(개인)
+	public ArrayList<Like> idList(String userid) throws Exception;
+	
+	//좋아요 리스트
+	public ArrayList<Like> likeList() throws Exception;
+		
+	//구독
+	public int subscribe(Subscribe subscribe) throws Exception;
+	
+	//구독 리스트
+	public ArrayList<Subscribe> subscribe(String userid) throws Exception;
 }

@@ -14,7 +14,8 @@
 	<!-- 글 목록(개인) -->
 	<select id="boardList" parameterType="string" resultType="Board">
 		SELECT * FROM cm_board
-		WHERE USERID=#{userid}
+		WHERE
+			USERID = #{userid}
 	</select>
 	
 	<!-- 글 목록(전체) -->
@@ -69,4 +70,31 @@
 			boardnum = #{boardnum} and
 			userid = #{userid}
 	</delete>
+	
+	<!-- 좋아요 등록 -->
+	<insert id="like" parameterType="Like">
+		INSERT INTO cm_like
+		VALUES
+	</insert>
+	
+	<!-- 좋아요 리스트(랭킹) -->
+	<select id="rankList" resultType="Like">
+		SELECT * FROM cm_like
+	</select>
+	
+	<!-- 좋아요 리스트(개인) -->
+	<select id="idList" parameterType="String" resultType="Like">
+		SELECT * FROM cm_like
+		WHERE
+			userid = #{userid}
+	</select>
+	
+	<!-- 좋아요 리스트 -->
+	
+	
+	<!-- 구독 -->
+	
+	
+	<!-- 구독 리스트 -->
+	
 </mapper>

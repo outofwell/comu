@@ -129,9 +129,6 @@ public class BoardController {
 		return "result";
 	}
 	
-	
-	
-	
 	//****좋아요 리스트 (랭킹[기간별/전체/] / 특정사용자의LIKE리스트[나/남])
 	
 	//[좋아요 등록] int like(Like like) return "result";
