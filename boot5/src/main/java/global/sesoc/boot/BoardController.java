@@ -166,7 +166,7 @@ public class BoardController {
 		return "result";
 	}
 
-	// 구독 int writeSubscribe(Subscribe subscribe) return "result";
+	// 구독 int writeSubscribe(Subscribe subscribe) return "result"
 	@RequestMapping(value = "/writeSubscribe", method = RequestMethod.GET)
 	public String writeSubscribe(Subscribe subscribe) {
 		boardRepository.writeSubscribe(subscribe);
