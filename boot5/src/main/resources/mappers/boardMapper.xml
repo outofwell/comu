@@ -39,7 +39,7 @@
 			boardnum = #{boardnum}
 	</delete>
 	
-	<!-- 글 검색 -->
+	<!-- 글 검색 ? -->
 	<select id="searchBoard" parameterType="String" resultType="Board">
 	
 	</select>
@@ -57,29 +57,26 @@
 		SET
 			replytext = #{replytext}
 		WHERE
-			replynum = #{replynum} and
-			boardnum = #{boardnum} and
-			userid = #{userid}
+			replynum = #{replynum}
 	</update>
 	
 	<!-- 댓글 삭제 -->
 	<delete id="deleteReply" parameterType="int">
 		DELETE cm_reply
 		WHERE
-			replynum = #{replynum} and
-			boardnum = #{boardnum} and
-			userid = #{userid}
+			replynum = #{replynum}
 	</delete>
 	
 	<!-- 좋아요 등록 -->
 	<insert id="like" parameterType="Like">
 		INSERT INTO cm_like
 		VALUES
+			(#{boardnum}, #{userid}, #{like_userid})
 	</insert>
 	
-	<!-- 좋아요 리스트(랭킹) -->
+	<!-- 좋아요 리스트(랭킹) ? -->
 	<select id="rankList" resultType="Like">
-		SELECT * FROM cm_like
+	
 	</select>
 	
 	<!-- 좋아요 리스트(개인) -->
@@ -89,12 +86,22 @@
 			userid = #{userid}
 	</select>
 	
-	<!-- 좋아요 리스트 -->
+	<!-- 좋아요 리스트 ? -->
+	<select id="likeList" resultType="Like">
 	
-	
+	</select>
+	          
 	<!-- 구독 -->
-	
+	<insert id="writeSubscribe" parameterType="Subscribe">
+		INSERT INTO cm_subscribe
+		VALUES
+			(#{userid}, #{sub_userid})
+	</insert>
 	
 	<!-- 구독 리스트 -->
-	
+	<select id="subscribeList" parameterType="String" resultType="Subscribe">
+		SELECT * FROM cm_subscribe
+		WHERE
+			userid = #{userid}
+	</select>
 </mapper>

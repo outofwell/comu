@@ -49,8 +49,8 @@ public interface BoardDAO {
 	public ArrayList<Like> likeList() throws Exception;
 		
 	//구독
-	public int subscribe(Subscribe subscribe) throws Exception;
+	public int writeSubscribe(Subscribe subscribe) throws Exception;
 	
 	//구독 리스트
-	public ArrayList<Subscribe> subscribe(String userid) throws Exception;
+	public ArrayList<Subscribe> subscribeList(String userid) throws Exception;
 }
