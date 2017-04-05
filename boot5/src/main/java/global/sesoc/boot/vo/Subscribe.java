@@ -5,7 +5,7 @@ public class Subscribe {
 	private String sub_userid;
 
 	public Subscribe() {
-//test
+
 	}
 
 	public Subscribe(String userid, String sub_userid) {

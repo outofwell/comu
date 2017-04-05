@@ -8,7 +8,7 @@
 	<insert id="write" parameterType="Board">
 		INSERT INTO cm_board 
 		VALUES
-		(boardnum_seq.nextval, #{userid}, #{title}, #{content}, sysdate, #{filenum}, #{shared}) 
+			(boardnum_seq.nextval, #{userid}, #{title}, #{content}, sysdate, #{filenum}, #{shared}) 
 	</insert>
 	
 	<!-- 글 목록(개인) -->
@@ -42,4 +42,31 @@
 	<select id="searchBoard" parameterType="String" resultType="Board">
 	
 	</select>
+	
+	<!-- 댓글 등록 -->
+	<insert id="writeReply" parameterType="Reply">
+		INSERT INTO cm_reply
+		VALUES
+			(replynum_seq, #{boardnum}, #{userid}, #{replytext}, sysdate)
+	</insert>
+	
+	<!-- 댓글 수정 -->
+	<update id="updateReply" parameterType="Reply">
+		UPDATE cm_reply
+		SET
+			replytext = #{replytext}
+		WHERE
+			replynum = #{replynum} and
+			boardnum = #{boardnum} and
+			userid = #{userid}
+	</update>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="deleteReply" parameterType="int">
+		DELETE cm_reply
+		WHERE
+			replynum = #{replynum} and
+			boardnum = #{boardnum} and
+			userid = #{userid}
+	</delete>
 </mapper>

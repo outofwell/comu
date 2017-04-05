@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import global.sesoc.boot.dao.BoardDAO;
 import global.sesoc.boot.vo.Board;
+import global.sesoc.boot.vo.Reply;
 
 @Repository
 public class BoardRepository {
@@ -77,4 +78,25 @@ public class BoardRepository {
 	}
 	
 	//글 검색
+	
+	
+	//댓글 등록
+	public int writeReply(Reply reply) {
+		BoardDAO dao = sqlSession.getMapper(BoardDAO.class);
+		
+		int result = 0;
+		
+		try {
+			dao.writeReply(reply);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	//댓글 수정
+	
+	
+	//댓글 삭제
 }
