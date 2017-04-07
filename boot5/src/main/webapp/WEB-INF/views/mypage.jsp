@@ -52,7 +52,7 @@
 					success : function(resp) {
 						$.each(resp, function(index, item) {
 								var msg ='<div class="row" id="board"><div class="col-md-3">'
-								+'<img src="resources/covers/20170328.png" style="width: 60px; height: 60px;" /></div><div class="col-md-8">'
+								+'<img src="resources/covers/'+item.cover_re+'" style="width: 60px; height: 60px;" /></div><div class="col-md-8">'
 								+item.title +'<hr><article>'
 								+item.content+'</article>'
 								$(".test").append(msg);

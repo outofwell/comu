@@ -2,6 +2,7 @@ package global.sesoc.boot;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +30,16 @@ public class FileController {
 	@Autowired
 	FileRepository fileRepository;
 	
-	//이미지 파일 업로드 경로
-	final String uploadPath = "/covers";
+	@Autowired
+	HttpServletRequest request;
 	
-	
+		
 	//COMU : 음악 저장 / 수정 후 저장
 	@RequestMapping(value="/save", method=RequestMethod.POST)
 	public String save(MultipartFile upload, Files file, HttpSession session){
+		
+		//이미지 파일 업로드 경로
+		final String uploadPath = request.getSession().getServletContext().getRealPath("/")+"/resources/covers";
 
 		//이미지 파일 처리
 		if(!upload.isEmpty()){

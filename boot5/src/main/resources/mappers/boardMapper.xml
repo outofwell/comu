@@ -26,7 +26,7 @@
 		WHERE
 			b.filenum = f.filenum
 		AND
-			USERID = #{userid}
+			b.userid = #{userid}
 	</select>
 	
 	<!-- 글 목록(전체) -->
@@ -75,7 +75,7 @@
 	<insert id="writeReply" parameterType="Reply">
 		INSERT INTO cm_reply
 		VALUES
-			(replynum_seq, #{boardnum}, #{userid}, #{replytext}, sysdate)
+			(replynum_seq.nextval, #{boardnum}, #{userid}, #{replytext}, sysdate)
 	</insert>
 	
 	<!-- 댓글 수정 -->
