@@ -184,7 +184,7 @@ $(document).ready(function() {
 			<form id="form1" runat="server" action="save" method="post" enctype="multipart/form-data">
 	    	<div class="container">
 			<input type="hidden" name="userid" value="${loginId}">
-			<input type="hidden" name="file_type" value="comu">
+			<input type="hidden" name="file_type" value="comu"> 
 	    		<div class="row">
 					<div class="col-md-6">	<!-- 왼쪽 -->
 						<h3>CODING</h3>
