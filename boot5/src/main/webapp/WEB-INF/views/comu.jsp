@@ -217,8 +217,9 @@
 				<form id="form1" runat="server" action="save" method="post"
 					enctype="multipart/form-data">
 					<div class="container">
-						<input type="hidden" name="userid" value="${loginId}"> <input
-							type="hidden" name="file_type" value="comu">
+						<input type="hidden" name="userid" value="${loginId}"> 
+						<input type="hidden" name="file_type" value="comu">
+						<c:if test="${not empty file.filenum }"><input type="hidden" name="filenum" value="${file.filenum }"></c:if>
 						<div class="row">
 							<div class="col-md-6">
 								<!-- 왼쪽 -->

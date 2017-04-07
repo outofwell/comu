@@ -39,14 +39,14 @@ public class FileController {
 	public String save(MultipartFile upload, Files file, HttpSession session){
 		
 		//이미지 파일 업로드 경로
-		final String uploadPath = request.getSession().getServletContext().getRealPath("/")+"/resources/covers";
+		String uploadPath = request.getSession().getServletContext().getRealPath("/")+"/resources/covers";
 
 		//이미지 파일 처리
 		if(!upload.isEmpty()){
 			String savedFile = FileService.saveFile(upload, uploadPath);
 			file.setCover_ori(upload.getOriginalFilename());
 			file.setCover_re(savedFile);
-		}else{}
+		}
 		
 		file.setFile_com("comfiled code");
 		
