@@ -6,9 +6,17 @@
 
 	<!-- 파일 저장 -->
 	<insert id="saveFile" parameterType="File">
-		INSERT INTO cm_file
+		INSERT INTO cm_file(filenum, userid, file_ori, file_com, file_type, file_title
+		<if test="cover_ori != null">
+			, cover_ori
+			, cover_re
+		</if>
+		)
 		VALUES
-		(filenum_seq.nextval, #{userid}, #{file_ori}, #{file_com}, #{file_type}, #{file_title}, #{cover_ori}, #{cover_re}) 
+		(filenum_seq.nextval, #{userid}, #{file_ori}, #{file_com}, #{file_type}, #{file_title}
+		<if test="cover_ori != null">
+		, #{cover_ori}, #{cover_re}
+		</if>) 
 	</insert>
 	
 	<!-- 파일 목록 불러오기 -->
@@ -26,7 +34,10 @@
 	<!-- 파일 덮어쓰기 -->
 	<update id="updateFile" parameterType="File">
 		UPDATE cm_file
-		SET file_title = #{file_title}, file_ori = #{file_ori}, file_com = #{file_com}, cover_re=#{cover_re}
+		SET file_title = #{file_title}, file_ori = #{file_ori}, file_com = #{file_com}
+		<if test="cover_re != null">
+		, cover_re=#{cover_re}
+		</if>
 		WHERE FILENUM = #{filenum}
 	</update>
 	
