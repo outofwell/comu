@@ -7,6 +7,7 @@
 	<!-- 파일 저장 -->
 	<insert id="saveFile" parameterType="File">
 		INSERT INTO cm_file
+		()
 		VALUES
 		(filenum_seq.nextval, #{userid}, #{file_ori}, #{file_com}, #{file_type}, #{file_title}, #{cover_ori}, #{cover_re}) 
 	</insert>
