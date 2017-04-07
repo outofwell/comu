@@ -4,23 +4,36 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="global.sesoc.boot.dao.BoardDAO">
 
-	<!-- 게시글 등록 -->
+	<!-- 게시글 등록 ? -->
 	<insert id="write" parameterType="Board">
 		INSERT INTO cm_board 
 		VALUES
 			(boardnum_seq.nextval, #{userid}, #{title}, #{content}, sysdate, #{filenum}, #{shared}) 
 	</insert>
 	
-	<!-- 글 목록(개인) -->
-	<select id="boardList" parameterType="string" resultType="Board">
-		SELECT * FROM cm_board
+	<!-- 글 등록시 이미지 변경 ? -->
+	<update id="fileUpdate" parameterType="File">
+		UPDATE cm_file
+		SET
+			cover_re = #{cover_re}
 		WHERE
+			filenum = #{filenum}
+	</update>
+	
+	<!-- 글 목록(개인) ? -->
+	<select id="boardList" parameterType="string" resultType="Board">
+		SELECT * FROM cm_board b, cm_file f
+		WHERE
+			b.filenum = f.filenum
+		AND
 			USERID = #{userid}
 	</select>
 	
 	<!-- 글 목록(전체) -->
 	<select id="list" resultType="Board">
-		SELECT * FROM cm_board
+		SELECT * FROM cm_board b, cm_file f
+		WHERE
+			b.filenum = f.filenum
 	</select>
 	
 	<!-- 글 수정 -->
@@ -39,9 +52,23 @@
 			boardnum = #{boardnum}
 	</delete>
 	
-	<!-- 글 검색 ? -->
-	<select id="searchBoard" parameterType="String" resultType="Board">
-	
+	<!-- 글 검색 -->
+	<select id="searchBoard" parameterType="map" resultType="Board">
+		SELECT * FROM cm_board
+		<if test="searchTitle != '' and searchText != '' ">
+			<choose>
+				<when test="searchTitle == 'userid' ">
+					WHERE userid LIKE '%' || #{searchText} || '%'
+				</when>
+				<when test="searchTitle == 'title' ">
+					WHERE title LIKE '%' || #{searchText} || '%'
+				</when>
+				<when test="searchTitle == 'content' ">
+					WHERE content LIKE '%' || #{searchText} || '%'
+				</when>
+			</choose>
+		</if>
+		ORDER BY boardnum
 	</select>
 	
 	<!-- 댓글 등록 -->
@@ -74,9 +101,10 @@
 			(#{boardnum}, #{userid}, #{like_userid})
 	</insert>
 	
-	<!-- 좋아요 리스트(랭킹) ? -->
+	<!-- 좋아요 리스트(랭킹) -->
 	<select id="rankList" resultType="Like">
-	
+		SELECT count(*) FROM cm_like
+		GROUP BY boardnum
 	</select>
 	
 	<!-- 좋아요 리스트(개인) -->
@@ -86,9 +114,11 @@
 			userid = #{userid}
 	</select>
 	
-	<!-- 좋아요 리스트 ? -->
+	<!-- 좋아요 리스트 -->
 	<select id="likeList" resultType="Like">
-	
+		SELECT * FROM cm_like
+		WHERE
+			boardnum = #{boardnum}
 	</select>
 	          
 	<!-- 구독 -->

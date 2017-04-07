@@ -1,13 +1,17 @@
 package global.sesoc.boot;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -108,10 +112,18 @@ public class BoardController {
 		return "mypage";
 	}
 
-	// 글 검색 Board searchBoard(String search) return "shared";
+	// 글 검색 List<Board> searchBoard(Map<String, String> search) return "shared";
 	@RequestMapping(value = "/searchBoard", method = RequestMethod.GET)
-	public String searchBoard(String search) {
-		boardRepository.searchBoard(search);
+	public String searchBoard(@RequestParam(value = "searchTitle", defaultValue = "") String searchTitle,
+			@RequestParam(value = "searchText", defaultValue = "") String searchText,
+			Model model
+			) {
+		List<Board> searchBoard = boardRepository.searchBoard(searchTitle, searchText);
+		
+		model.addAttribute("searchBoard", searchBoard);
+		model.addAttribute("searchTitle", searchTitle);
+		model.addAttribute("searchText", searchText);
+		
 		return "shared";
 	}
 

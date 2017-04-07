@@ -1,6 +1,9 @@
 package global.sesoc.boot.repository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +24,7 @@ public class BoardRepository {
 	// 글 작성
 	public int write(Board board) {
 		BoardDAO dao = sqlSession.getMapper(BoardDAO.class);
-
+		
 		int result = 0;
 
 		try {
@@ -85,19 +88,24 @@ public class BoardRepository {
 		return result;
 	}
 
-	// 글 검색 ?
-	public Board searchBoard(String search) {
+	// 글 검색
+	public List<Board> searchBoard(String searchTitle, String searchText) {
 		BoardDAO dao = sqlSession.getMapper(BoardDAO.class);
 		
-		Board board = null;
+		Map<String, String> search = new HashMap<>();
+		
+		search.put("searchTitle", searchTitle);
+		search.put("searchText", searchText);
+		
+		List<Board> boardList = null;
 		
 		try {
-			board = dao.searchBoard(search);
+			boardList = dao.searchBoard(search);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return board;
+		return boardList;
 	}
 
 	// 댓글 등록
