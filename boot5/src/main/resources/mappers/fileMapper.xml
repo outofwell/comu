@@ -26,7 +26,7 @@
 	<!-- 파일 덮어쓰기 -->
 	<update id="updateFile" parameterType="File">
 		UPDATE cm_file
-		SET file_title = #{file_title}, file_ori = #{file_ori}, file_com = #{file_com}
+		SET file_title = #{file_title}, file_ori = #{file_ori}, file_com = #{file_com}, cover_re=#{cover_re}
 		WHERE FILENUM = #{filenum}
 	</update>
 	

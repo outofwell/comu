@@ -2,8 +2,8 @@ package global.sesoc.boot;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +40,8 @@ public class BoardController {
 	@Autowired
 	HttpSession session;
 
-	// 이미지 파일 업로드 경로
-	final String uploadPath = "/covers";
+	@Autowired
+	HttpServletRequest request;
 
 	// MYPAGE : 글쓰기 페이지로 이동
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
@@ -66,6 +66,9 @@ public class BoardController {
 
 		System.out.println(board);
 
+		// 이미지 파일 업로드 경로
+		String uploadPath = request.getSession().getServletContext().getResourcePaths("/") + "/resources/covers";
+
 		// 이미지 처리
 		if (!upload.isEmpty()) {
 			String savedFile = FileService.saveFile(upload, uploadPath);
@@ -73,7 +76,7 @@ public class BoardController {
 			// board.setOriginalfile(upload.getOriginalFilename());
 			// board.setSavedfile(savedFile);
 		} else {
-			
+
 		}
 		if (board.getShared() == null) {
 			board.setShared("unshare");
@@ -115,15 +118,13 @@ public class BoardController {
 	// 글 검색 List<Board> searchBoard(Map<String, String> search) return "shared";
 	@RequestMapping(value = "/searchBoard", method = RequestMethod.GET)
 	public String searchBoard(@RequestParam(value = "searchTitle", defaultValue = "") String searchTitle,
-			@RequestParam(value = "searchText", defaultValue = "") String searchText,
-			Model model
-			) {
+			@RequestParam(value = "searchText", defaultValue = "") String searchText, Model model) {
 		List<Board> searchBoard = boardRepository.searchBoard(searchTitle, searchText);
-		
+
 		model.addAttribute("searchBoard", searchBoard);
 		model.addAttribute("searchTitle", searchTitle);
 		model.addAttribute("searchText", searchText);
-		
+
 		return "shared";
 	}
 

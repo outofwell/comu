@@ -9,11 +9,13 @@ public class Board {
 	private String inputdate;
 	private int filenum;
 	private String shared;
-	
-	public Board() {}
-	
+	private String cover_re;
+
+	public Board() {
+	}
+
 	public Board(int boardnum, String userid, String title, String content, String inputdate, int filenum,
-			String shared) {
+			String shared, String cover_re) {
 		super();
 		this.boardnum = boardnum;
 		this.userid = userid;
@@ -22,6 +24,7 @@ public class Board {
 		this.inputdate = inputdate;
 		this.filenum = filenum;
 		this.shared = shared;
+		this.cover_re = cover_re;
 	}
 
 	public int getBoardnum() {
@@ -80,10 +83,19 @@ public class Board {
 		this.shared = shared;
 	}
 
+	public String getCover_re() {
+		return cover_re;
+	}
+
+	public void setCover_re(String cover_re) {
+		this.cover_re = cover_re;
+	}
+
 	@Override
 	public String toString() {
 		return "Board [boardnum=" + boardnum + ", userid=" + userid + ", title=" + title + ", content=" + content
-				+ ", inputdate=" + inputdate + ", filenum=" + filenum + ", shared=" + shared + "]";
+				+ ", inputdate=" + inputdate + ", filenum=" + filenum + ", shared=" + shared + ", cover_re=" + cover_re
+				+ "]";
 	}
-	
+
 }
