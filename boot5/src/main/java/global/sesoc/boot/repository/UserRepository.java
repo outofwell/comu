@@ -1,7 +1,5 @@
 package global.sesoc.boot.repository;
 
-import javax.servlet.http.HttpSession;
-
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,24 +45,17 @@ public class UserRepository {
 	}
 	
 	// 로그인 Repository
-	public String login(String userid, String password, Model model, HttpSession session) {
+	public User login(String userid, String password) {
 		UserDAO dao = sqlSession.getMapper(UserDAO.class);
 		User u = null;
+		
 		try {
 			u = dao.selectOne(userid);
-			if (u != null) {
-				if(u.getPassword().equals(password)) {
-					session.setAttribute("loginId", u.getUserid());
-				}
-			}
-			else {
-				model.addAttribute("errorMsg", "ID 또는 비밀번호가 틀립니다.");
-				return "/login";
-			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "redirect:/";
+		
+		return u;
 	}
 	
 	// id 중복확인 Repository
