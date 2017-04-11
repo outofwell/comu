@@ -8,15 +8,15 @@
 	<insert id="saveFile" parameterType="File">
 		INSERT INTO cm_file(filenum, userid, file_ori, file_com, file_type, file_title
 		<if test="cover_ori != null">
-			, cover_ori
-			, cover_re
+			, cover_ori , cover_re
 		</if>
 		)
 		VALUES
 		(filenum_seq.nextval, #{userid}, #{file_ori}, #{file_com}, #{file_type}, #{file_title}
 		<if test="cover_ori != null">
-		, #{cover_ori}, #{cover_re}
-		</if>) 
+			, #{cover_ori}, #{cover_re}
+		</if>
+		) 
 	</insert>
 	
 	<!-- 파일 목록 불러오기 -->

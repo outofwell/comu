@@ -71,6 +71,9 @@ public class HomeController {
 
 	@RequestMapping(value = "/shared", method = RequestMethod.GET)
 	public String shared() {
+		String id = (String)session.getAttribute("loginId");
+		ArrayList<Board> list = boardRepository.boardList(id);
+		session.setAttribute("boardlist", list);
 		return "shared";
 	}
 
