@@ -136,14 +136,12 @@ $(document).ready(function() {
     	var form = document.getElementById("form1");
     	
     	var code = document.getElementById("code").value;
-    	var title = document.getElementById("title").value;
-    	
+    	var title = document.getElementById("title").value;i    	
     	if(code != '' && title != ''){
-    		alert('test');
     		form.action="save"; 
         	form.submit();
     	} else {
-    		alert("code, title를 채워주세요.");
+    		alert("code, title를 입력해주세요.");
     	}   	
     }
 </script>
