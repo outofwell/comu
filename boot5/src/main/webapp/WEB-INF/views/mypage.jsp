@@ -59,7 +59,7 @@
 						});
 					}
 			});
-			//fileList END=====	
+			//boardList END=====	
 				
 	});
 		
