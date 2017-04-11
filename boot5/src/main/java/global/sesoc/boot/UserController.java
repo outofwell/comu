@@ -26,7 +26,7 @@ public class UserController {
 	}
 
 	// login 처리
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = {RequestMethod.GET,RequestMethod.POST})
 	public @ResponseBody String login(String userid, String password, HttpSession session, HttpServletRequest request) {
 		User user = userRepository.login(userid, password);
 		

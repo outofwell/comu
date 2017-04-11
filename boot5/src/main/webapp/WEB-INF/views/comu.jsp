@@ -104,7 +104,7 @@ $(document).ready(function() {
         }
     }
     
-/*     //전체 파일 리스트 불러오기
+	//전체 파일 리스트 불러오기
     $(function(){
     	$("#load").on('click', function(){
     		$.ajax({
@@ -128,9 +128,9 @@ $(document).ready(function() {
     			}
     		});
     	});
-    }); */
+    });
     
-    //개인 파일 리스트 불러오기
+    /* //개인 파일 리스트 불러오기
     $(function(){
     	$("#load").on('click', function(){
     		$.ajax({
@@ -154,7 +154,7 @@ $(document).ready(function() {
     			}
     		});
     	});
-    });
+    }); */
     
     //파일 저장
     function save(){
