@@ -83,7 +83,12 @@
 		ev.preventDefault();
 		var data = ev.dataTransfer.getData("text");
 		ev.target.appendChild(document.getElementById(data));
-		location.href = 'dragdelete?filenum=' + data;
+		
+		if (confirm(data + "를 삭제하시겠습니까?")) {
+			location.href = 'dragdelete?filenum=' + data;
+		} else {
+			location.href = 'mypage';
+		}
 	}
 </script>
 <style>
