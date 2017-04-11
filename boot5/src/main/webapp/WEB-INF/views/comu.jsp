@@ -134,8 +134,15 @@ $(document).ready(function() {
     //파일 저장
     function save(){
     	var form = document.getElementById("form1");
-    	form.action="save"; 
-    	form.submit();
+    	
+    	var code = document.getElementById("code").value;
+    	var title = document.getElementById("title").value;i    	
+    	if(code != '' && title != ''){
+    		form.action="save"; 
+        	form.submit();
+    	} else {
+    		alert("code, title를 입력해주세요.");
+    	}   	
     }
 </script>
 <style>
@@ -223,7 +230,7 @@ $(document).ready(function() {
 								<div class="form-group">
 		   							<div class="form-group label-floating">
 										<label class="control-label">Title</label>
-		   									<input type="text" class="form-control" name="file_title" value="${file.file_title}" /><br>
+		   									<input type="text" class="form-control" name="file_title" id="title" value="${file.file_title}" /><br>
 		   							</div>
 		   		</form>
 									<a href="#pablo" class="btn btn-primaru btn-primary" 
