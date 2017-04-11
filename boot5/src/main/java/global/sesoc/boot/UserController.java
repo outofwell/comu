@@ -1,7 +1,5 @@
 package global.sesoc.boot;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,13 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-
-import global.sesoc.boot.repository.BoardRepository;
-import global.sesoc.boot.repository.FileRepository;
 import global.sesoc.boot.repository.UserRepository;
-import global.sesoc.boot.util.FileService;
-import global.sesoc.boot.vo.Files;
 import global.sesoc.boot.vo.User;
 
 @Controller

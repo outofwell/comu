@@ -32,14 +32,29 @@ public class FileRepository {
 	}
 	
 	public ArrayList<Files> fileList(){
-		ArrayList<Files> list = new ArrayList();
+		ArrayList<Files> fileList = new ArrayList();
 		FileDAO dao = sqlSession.getMapper(FileDAO.class);
 		try {
-			list = dao.fileList();
+			fileList = dao.fileList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return list;
+		return fileList;
+	}
+	
+	// 개인 파일 리스트
+	public ArrayList<Files> userlist(String userid) {
+		FileDAO dao = sqlSession.getMapper(FileDAO.class);
+		
+		ArrayList<Files> userlist = null;
+		
+		try {
+			userlist = dao.userlist(userid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return userlist;
 	}
 
 	public Files loadFile(int filenum) {
