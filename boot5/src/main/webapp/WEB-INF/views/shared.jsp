@@ -145,7 +145,7 @@
 									  	 <td rowspan="2" id="imgtable" class='border' style="width:50px; margin:auto; text-align:center;"><img src="resources/covers/${board.cover_re}" alt="image" style="width:50px;height:50px; text-align:center;"></td>
 									  	 <td style="text-align:left;"><span style="font-weight: bold;">${board.userid}</span>
 									  		<br>${board.title}
-									  		<br><span style="color: blue;">Like / Comment</span></td>
+									  		<br><span style="color: blue;">Like /  Comment</span></td>
 									  	 <td>
 								  	 </tr>
 							  	 	</table>
