@@ -22,8 +22,7 @@
 <!-- CSS Files -->
 <link href="resources/assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="resources/assets/css/material-kit.css" rel="stylesheet" />
-
-<script src='resources/js/jaudio.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
@@ -31,6 +30,25 @@
 height: 50px;
 }
 </style>
+<script>
+$(function(){
+	$("#login").on('click', function(){
+		$.ajax({
+			url : "login"
+			, type : "post"
+			, data : {"userid" : $('#userid').val(), "password" : $('#password').val()}
+			, success : function(resp) {
+				if(resp == "errorMsg") {
+					$(".dropdown").attr("class", "dropdown open");
+					$('#d').html('<div class="alert alert-info"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"><i class="material-icons">clear</i></span></button><b>Info alert:</b> 내용</div>');
+				} else {
+					location.href=resp;
+				}
+			}
+		});
+	});
+});
+</script>
 </head>
 <body>
 
@@ -69,8 +87,9 @@ height: 50px;
 							<ul class="dropdown-menu dropdown-menu-right">
 								<li>
 									<div class="col-sm-12">
-										<div class="content">
+										<div id="d"></div>
 											<form class="form" method="post" action="login">
+										<div class="content">
 												<div class="input-group">
 													<span class="input-group-addon"> <i
 														class="material-icons">face</i>
@@ -82,14 +101,15 @@ height: 50px;
 													<span class="input-group-addon"> <i
 														class="material-icons">lock_outline</i>
 													</span> <input type="password" placeholder="Password"
-														class="form-control" name="password" />
+														class="form-control" name="password" id="password" />
 												</div>
 										</div>
+											</form>
 										<div class="footer text-center">
 											<a href="#pablo" class="btn btn-simple btn-primary btn-lg">
-												<button class="btn btn-primary">LOGIN</button>
+												<button class="btn btn-primary" id="login">LOGIN</button>
 											</a>
-											</form>
+											
 											<hr>
 											<a href="#pablo" class="btn btn-simple btn-primary btn-lg">
 												<button class="btn btn-primary btn-simple"
@@ -275,8 +295,7 @@ height: 50px;
 
 </body>
 
-<script
-	src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+
 <script src='resources/js/jaudio.min.js'></script>
 <script src='resources/js/main.js'></script>
 
@@ -308,7 +327,6 @@ height: 50px;
 
 			$(window).on('scroll', materialKitDemo.checkScrollForParallax);
 		}
-
 	});
 </script>
 </html>
