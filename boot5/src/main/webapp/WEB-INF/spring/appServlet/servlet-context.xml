@@ -23,6 +23,13 @@
 	
 	<context:component-scan base-package="global.sesoc.boot" />
 	
-	
+	<beans:bean id="Interceptor" class="global.sesoc.boot.interceptor.Interceptor"></beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/mypage" />
+			
+			<beans:ref bean="Interceptor"/>
+		</interceptor>
+	</interceptors>
 	
 </beans:beans>
