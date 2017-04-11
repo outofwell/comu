@@ -97,7 +97,7 @@ public class BoardController {
 	// 글 목록(전체) ArrayList<Board> list() return "shared";
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list() {
-		boardRepository.list();
+		ArrayList<Board> list = boardRepository.list();
 		return "shared";
 	}
 

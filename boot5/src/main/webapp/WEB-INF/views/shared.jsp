@@ -1,127 +1,259 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>SONIK HTML TEMPLATE</title>
+		<meta name="description" content="The Incredible Music HTML Template">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
+	    <script type="text/javascript" src="resources/js/jquery-3.1.1.min.js"></script>
+	    <!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+			
+		<link href='resources/https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<link href='resources/components/slick/slick.css' rel='stylesheet' type='text/css'>
+		<link href='resources/components/swipebox/src/css/swipebox.min.css' rel='stylesheet' type='text/css'>
+		<link href='resources/fonts/iconfont/style.css' rel='stylesheet' type='text/css'>
+		<link href='resources/fonts/qticons/qticons.css' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="resources/css/qt-main.css"><!-- INCLUDES THE CSS FRAMEWORK VIA #IMPORT AND SASS -->
+		<link rel="shortcut icon" type="image/png" href="resources/resources/images/favicon.png"/>
+		
+		<style>
+		.center{text-align:center;}
+		.nav hide-on-med-and-down{    
+		margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);}
+    
+		.center, td, tr{
+			text-align : center; 
+			margin : auto;
+		}
+		
+		.center{
+			width: 650px;
+		}
+		
+		td{
+			width:80px;
+			max-width: 80px;
+		}
+		.nav hide-on-med-and-down{    
+			margin: 0;
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+		}
+		
+		#div3{
+			border: solid 1px black;
+		}
+		
+		#div4{
+			background-image: url("resources/covers/trash.png");
+			background-size: 10%;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+		
+		.font{
+			font-size: 14px;
+		}
+		
+		a, a:hover{ text-decoration: none;}
 
-  <title>Readmore.js: jQuery plugin for long blocks of text</title>
-  <meta name="description" content="A smooth, lightweight jQuery plugin for collapsing and expanding long blocks of text with &#8220;Read more&#8221; and &#8220;Close&#8221; links.">
-  <meta name="author" content="Jed Foster">
+		</style>
+		
+		<script>
+		$(function(){
+			
+			$('.btn btn-info').sideNav({
+				  menuWidth: 300, // Default is 240
+				  edge: 'right', // Choose the horizontal origin
+				  closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+				}
+			  );
+		});
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		</script>
 
-<script src="/node_modules/readmore-js/readmore.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
-
-
-  <style media="screen">
-    body { font: 16px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif; color: #444; }
-    code { color: #777; font-family: "Source Code Pro", "Menlo", "Courier New", monospace;}
-    a { color: #178DB1; }
-    .container { margin: 0 auto; max-width: 960px; }
-    #info + .readmore-js-toggle { padding-bottom: 1.5em; border-bottom: 1px solid #999; font-weight: bold;}
-    #demo { padding: 0 10%; }
-  </style>
-</head>
-
-
-<body class="index-page">
-<jsp:include page="navigation.jsp" flush="false"/>
-
-<div class="wrapper">
-	<div class="header header-filter" style="background-image: url('resources/assets/img/bg2.jpeg');">
+	</head>
+	<body class="qt-debug-disabled">
+	<!-- QT HEADER END ================================ -->
+			
+	<!-- ====================== MENU ================================================ -->
+	<div id="menu" class="qt-menu-wrapper" data-0-top>
+		<nav id="stickymenu" class="qt-menu grey-text text-lighten-4"  >
+			<!-- desktop menu -->
+			<ul class="qt-desktopmenu">
+				<li><a href="test">HOME</a></li>
+				<li><a href="#presskit">COMU</a></li>
+				<li><a href="hicu">HICU</a></li>
+				<li><a href="mypage">MYPAGE</a></li>
+				<li><a href="shared">SHARED</a></li>
+				<li><a href="howto">HOW TO</a></li>
+				<li><a href="aboutus">ABOUT US</a></li>
+			</ul>
+			<!-- mobile menu -->
+			<ul id="slide-out" class="side-nav qt-mobilemenu">
+				<li><a href="test">Home</a></li>
+				<li><a href="#music" class="qwsmoothscroll">Music</a></li>
+				<li><a href="#photos" class="qwsmoothscroll">Photos</a></li>
+				<li><a href="#bio" class="qwsmoothscroll">Bio</a></li>
+				<li><a href="#booking" class="qwsmoothscroll">Booking</a></li>
+				<li><a href="#presskit" class="qwsmoothscroll">Presskit</a></li>
+				<li><a href="#video" class="qwsmoothscroll">Video</a></li>
+			</ul>
+			<a href="#" data-activates="slide-out" class="button-collapse qt-menu-switch"><span class="lnr lnr-menu"></span></a>
+		</nav>
 	</div>
+	<!-- ====================== MENU END ================================================ -->
 
-	<div class="main main-raised">
-		<div class="section section-basic">
-	    	<div class="container">
-	    		<div class="row">
-		    		<div class="col-md-12" style="width:650px;">
-		    		<h3>Shared Music</h3>
-		    			<!-- 게시글 시작-->
-			    		<div class="row" style="border-top: solid lightgray 1px; padding: 10px;">
-				    		<div class="col-md-3">
-				    		<img src="http://placehold.it/100" />
-				    		<button class="btn btn-primary btn-sm">Song1</button>
-				    		</div>
-				    		<div class="col-md-9">
-							  <button class="btn btn-primary btn-xs">Extra Small</button>
-							  <article>
-						        <p>From this distant vantage point, the Earth might not seem of any particular interest. But for us, it's different. Consider again that dot. That's here. That's home. That's us. On it everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives. The aggregate of our joy and suffering, thousands of confident religions, ideologies, and economic doctrines, every hunter and forager, every hero and coward, every creator and destroyer of civilization, every king and peasant, every young couple in love, every mother and father, hopeful child, inventor and explorer, every teacher of morals, every corrupt politician, every "superstar," every "supreme leader," every saint and sinner in the history of our species lived there â€“ on a mote of dust suspended in a sunbeam.</p>
-						     	<button class="btn btn-primary btn-sm">구독</button> <button class="btn btn-primary btn-sm">♥</button><br>
-						     	<table><tr><td>idid : </td><td>댓글내용~~~~~~~~~~~~~~~</td></tr></table>
-						     	<input type="text" placeholder="reply"> <button class="btn btn-primary btn-sm">등록</button>
-						      </article>
-				    		</div>
-			    		</div>
-			    		<!-- 게시글 끝 -->
-			    		<!-- 게시글 시작-->
-			    		<div class="row" style="border-top: solid lightgray 1px; padding: 10px;">
-				    		<div class="col-md-3">
-				    		<img src="http://placehold.it/100" />
-				    		<button class="btn btn-primary btn-sm">Song2</button>
-				    		</div>
-				    		<div class="col-md-9">
-							  <input type="text" value="" placeholder="제목" class="form-control" readonly checked="checked"/>
-						      <article>
-						        <p>From this distant vantage point, the Earth might not seem of any particular interest. But for us, it's different. Consider again that dot. That's here. That's home. That's us. On it everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives. The aggregate of our joy and suffering, thousands of confident religions, ideologies, and economic doctrines, every hunter and forager, every hero and coward, every creator and destroyer of civilization, every king and peasant, every young couple in love, every mother and father, hopeful child, inventor and explorer, every teacher of morals, every corrupt politician, every "superstar," every "supreme leader," every saint and sinner in the history of our species lived there â€“ on a mote of dust suspended in a sunbeam.</p>
-						     	<button class="btn btn-primary btn-sm">구독</button> <button class="btn btn-primary btn-sm">♥</button><br>
-						     	<table><tr><td>idid : </td><td>댓글내용~~~~~~~~~~~~~~~</td></tr></table>
-						     	<input type="text" placeholder="reply"> <button class="btn btn-primary btn-sm">등록</button>
-						      </article>
-				    		</div>
-			    		</div>
-			    		<!-- 게시글 끝 -->
-			    		
-			    		<!-- page navigation start-->
-			    		<ul class="pagination pagination-primary">
-							<li><a href="#"><</a></li>
-							<li class="active"><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#">></a></li>
-						</ul>
-						<!-- page navigation end-->
+
+			<!-- main section  ================================ -->
+			<main class="qt-main">
+				<!-- ====================== SECTION BIOGRAPHY ================================================ -->
+				<div id="bio" class="section section-bio parallax-container qt-fullscreen scrollspy" >
+					<div class="parallax"><img src="resources/images/galaxy-3.jpg" alt="background"></div>
+					<div class="container">
+						<div class="qt-framed flow-text"  data-100p-top="opacity:0;" data-80p-top="opacity:0;" data-30p-top="opacity:1;" >
+							<h3 class="qt-section-title">shared<i class="deco"></i></h3>
+							<div class="content qt-polydecor poly2">
+							
+							<!-- Collapse -->
+							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+							
+							<c:forEach var="board" items="${boardList}" end="0">
+								<div class="panel panel-default">
+							    <div class="panel-heading" role="tab" id="head${board.boardnum}">
+							      <div class="panel-title">
+							        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#col${board.boardnum}" aria-expanded="true" aria-controls="col${board.boardnum}">
+							         <table class='border' style="table-layout:fixed; margin:-10px;">
+								  	 <tr>
+									  	 <td rowspan="2" id="imgtable" class='border' style="width:50px; margin:auto; text-align:center;"><img src="resources/covers/${board.cover_re}" alt="image" style="width:50px;height:50px; text-align:center;"></td>
+									  	 <td style="text-align:left;"><span style="font-weight: bold;">${board.userid}</span>
+									  		<br>${board.title}
+									  		<br><span style="color: blue;">Like / Comment</span></td>
+									  	 <td>
+								  	 </tr>
+							  	 	</table>
+							        </a>
+							      </div>
+							    </div>
+							    <div id="col${board.boardnum}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="head${board.boardnum}">
+							      <div class="panel-body">
+							         <table style="table-layout:fixed; margin:-10px;">
+							         <tr><td colspan='2'><textarea>코드: ${board.content}</textarea></td></tr>
+							         <tr><td colspan='2'><textarea>내용: ${board.content}</textarea></td></tr>
+								  	 <tr class='border'><td style="width:50px; margin:auto; text-align:right;">ID : </td><td>댓글내용~~~gg
+								  	 <tr class='border'><td colspan='2'><input type="text" placeholder="reply" style="width:300px;"> <button class="btn btn-primary btn-sm">등록</button></td></tr>
+								  	 
+								  	 </table>
+								   </div>
+							    </div>
+							  </div>
+							 </c:forEach> 
+							  						
+							<c:forEach var="board" items="${boardList}" begin="1">
+							  <div class="panel panel-default">
+							    <div class="panel-heading" role="tab" id="head${board.boardnum}" style="height:80px;">
+							      <div class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#col${board.boardnum}" aria-expanded="false" aria-controls="col${board.boardnum}">
+							         <table class='border' style="table-layout:fixed; margin:auto; height:50px;">
+								  	 <tr><td rowspan='2' id="imgtable" class='border'><img src="resources/covers/${board.cover_re}" alt="image" style="width:50px;height:50px;"></td><td style="text-align:left;">${board.title}</td></tr>
+							  	 	<tr><td style="text-align:left;">${board.title}</td></tr>
+							  	 	</table>
+							        </a>
+							      </div>
+							    </div>
+							    <div id="col${board.boardnum}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="head${board.boardnum}">
+							      <div class="panel-body">
+							         <table style="table-layout:fixed; margin:auto; height:50px;">
+							         <tr><td colspan='2'>코드: ${board.content}</td></tr>
+							         <tr><td colspan='2'>내용: ${board.content}</td></tr>
+								  	 <tr class='border'><td colspan='2'><button class="btn btn-primary btn-sm">구독</button> <button class="btn btn-primary btn-sm">♥</button></td></tr>
+								  	 <tr class='border' style="border-top: solid 1px black;"><td style="width:10px;">idid : </td><td>댓글내용~~~~~~~~~~~~~~~
+								  	 <tr class='border'><td colspan='2'><input type="text" placeholder="reply"> <button class="btn btn-primary btn-sm">등록</button></td></tr>
+								  	 </table>
+								   </div>
+							    </div>
+							  </div>
+							 </c:forEach>
+							</div>
+							<!-- Collapse END-->
+  	
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
+				<!-- ====================== SECTION BIOGRAPHY END ================================================ -->
+
+			</main>
+			<!-- main section end ================================ -->
+
+			<!-- footer section  ================================ -->
+			
+	<!-- ====================== FOOTER ================================================ -->
+	<footer class="qt-footer parallax-container blue-grey-text text-lighten-5">
+		<div class="parallax"><img src="resources/images/galaxy-3.jpg" alt="background"></div>
+		<div class="container center-align"  >
+			<h3 class="qt-footertitle"><img src="resources/images/logo-footer.png" alt="Sonik Music HTML template"></h3>
+			<h5>Copyright 2016 <a href="http://qantumthemes.com">QANTUMTHEMES</a>: TOP MUSIC WEBSITES.</h5>
+			<p class="qt-social">
+				<a href="#"><span class="qticon-beatport"></span></a>
+				<a href="#"><span class="qticon-facebook"></span></a>
+				<a href="#"><span class="qticon-twitter"></span></a>
+				<a href="#"><span class="qticon-youtube"></span></a>
+				<a href="#"><span class="qticon-soundcloud"></span></a>
+			</p>
 		</div>
+		<div class="qt-particles" id="particlesfooter" data-color="#ffffff" data-opacity="0.2" data-speed="1"></div>
+	</footer>
+	<div class="qt-firefoxfix"></div>
+	<!-- ====================== FOOTER END ================================================ -->
+		<!-- footer section end  ================================ -->
+
+		<!-- QT FOOTER ================================ -->
+		<script src="resources/js/modernizr-custom.js"></script>
+		<script src="resources/js/jquery.js"></script><!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
+		<script src="resources/js/jquery-migrate.min.js"></script><!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
+
+		<!--  CUSTOM JS LIBRARIES: =========================================================== -->
 		
-	    <footer class="footer">
-		    <div class="container">
-		    </div>
-		</footer>
-	</div>
-</div>
-
-
-</body>
-	<style>
-		.main-raised {
-			margin: -550px 30px 0px;
-		}
-		.panel-heading{
-		background-color: white;}
+		<script src="resources/js/materializecss/bin/materialize.min.js"></script>
+		<script src="resources/components/slick/slick.min.js"></script>
+		<script src="resources/components/skrollr/skrollr.min.js"></script>
+		<script src="resources/components/particles/particles.min.js"></script>
 		
-	</style>
-	
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="resources/js/Readmore.js"></script>
-
-  <script>
-    $('#info').readmore({
-      moreLink: '<a href="#">Usage, examples, and options</a>',
-      collapsedHeight: 384,
-      afterToggle: function(trigger, element, expanded) {
-        if(! expanded) { // The "Close" link was clicked
-          $('html, body').animate({scrollTop: element.offset().top}, {duration: 100});
-        }
-      }
-    });
-    $('article').readmore({speed: 500});
-  </script>
-
+		<script src="resources/components/swipebox/lib/ios-orientationchange-fix.js"></script>
+		<script src="resources/components/swipebox/src/js/jquery.swipebox.min.js"></script>
+		
+		<!-- MAIN JAVASCRIPT FILE ================================ -->
+		<script src="resources/js/qt-main.js"></script>
+		<script src="resources/js/Readmore.js"></script>
+		<script>
+		    $('#info').readmore({
+		      moreLink: '<a href="#">Usage, examples, and options</a>',
+		      collapsedHeight: 384,
+		      afterToggle: function(trigger, element, expanded) {
+		        if(! expanded) { // The "Close" link was clicked
+		          $('html, body').animate({scrollTop: element.offset().top}, {duration: 100});
+		        }
+		      }
+		    });
+		    $('article').readmore({speed: 500});
+ 		 </script>
+	</body>
 </html>
