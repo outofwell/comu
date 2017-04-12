@@ -34,13 +34,16 @@ public interface BoardDAO {
 	public List<Board> searchBoard(Map<String, String> search) throws Exception;
 
 	// 댓글 등록
-	public int writeReply(Reply reply) throws Exception;
+	public int replyWrite(Reply reply) throws Exception;
+	
+	// 댓글 가져오기
+	public List<Reply> replylist(int boardnum) throws Exception;
 
 	// 댓글 수정
 	public int updateReply(Reply reply) throws Exception;
 
 	// 댓글 삭제
-	public int deleteReply(int Replynum) throws Exception;
+	public int deleteReply(Reply reply) throws Exception;
 
 	// 좋아요 등록
 	public int like(Like like) throws Exception;

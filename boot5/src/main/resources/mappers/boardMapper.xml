@@ -72,10 +72,23 @@
 	</select>
 	
 	<!-- 댓글 등록 -->
-	<insert id="writeReply" parameterType="Reply">
+	<insert id="replyWrite" parameterType="Reply">
 		INSERT INTO cm_reply
+		(
+			replynum
+			, boardnum
+			, userid
+			, replytext
+			, inputdate
+		)
 		VALUES
-			(replynum_seq.nextval, #{boardnum}, #{userid}, #{replytext}, sysdate)
+		(
+			replynum_seq.nextval
+			, #{boardnum}
+			, #{userid}
+			, #{replytext}
+			, sysdate
+		)
 	</insert>
 	
 	<!-- 댓글 수정 -->
@@ -87,8 +100,14 @@
 			replynum = #{replynum}
 	</update>
 	
+	<!-- 댓글 불려오기 -->
+	<select id="replylist" resultType="Reply" parameterType="int">
+		SELECT * FROM cm_reply
+		WHERE boardnum = #{boardnum}
+	</select>
+	
 	<!-- 댓글 삭제 -->
-	<delete id="deleteReply" parameterType="int">
+	<delete id="deleteReply" parameterType="Reply">
 		DELETE cm_reply
 		WHERE
 			replynum = #{replynum}

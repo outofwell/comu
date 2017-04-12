@@ -15,7 +15,7 @@
 <jsp:include page="navigation.jsp" flush="false"/>
 
 <div class="wrapper">
-	<div class="header header-filter" style="background-image: url('resources/assets/img/bg2.jpeg');">
+	<div class="header" style="background-image: url('resources/images/galaxy-3.jpg');">
 	</div>
 
 	<div class="main main-raised">
