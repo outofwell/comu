@@ -32,7 +32,7 @@
 											+ '" style="width:60px; height:60px; border-radius:100px;" draggable="true" ondragstart="drag(event)" id='
 											+ item.filenum
 											+ '><br>';
-									msg += '<button class="btn btn-primary btn-xs data-toggle="tooltip" data-placement="top" title="Popover on top" data-content="aeae"">'
+									msg += '<button class="btn btn-primary btn-xs data-toggle="tooltip" data-placement="top">'
 											+ item.file_title
 											+ '</button></td>';
 									if ((index + 5) % 4 == 0) {
@@ -84,7 +84,7 @@
 		var data = ev.dataTransfer.getData("text");
 		ev.target.appendChild(document.getElementById(data));
 		
-		if (confirm(data + "를 삭제하시겠습니까?")) {
+		if (confirm("삭제하시겠습니까?")) {
 			location.href = 'dragdelete?filenum=' + data;
 		} else {
 			location.href = 'mypage';
