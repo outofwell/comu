@@ -48,6 +48,18 @@ $(function(){
 			}
 		});
 	});
+	
+	$("#joinid").blur( function(){
+		$.ajax({
+			url: "join"
+			, type: "get"
+			, data: {"userid" : $("#joinid").val()}
+			, success : function(resp){
+				alert(resp);
+				this.attr("class", "form-group label-floating has-error");
+			}
+		});
+	});
 });
 </script>
 </head>
@@ -173,7 +185,7 @@ $(function(){
 								<span class="input-group-addon"> <i
 									class="material-icons">face</i>
 								</span> <input type="text" class="form-control" placeholder="ID"
-									name="userid">
+									name="userid" id="joinid">
 							</div>
 
 							<div class="input-group">
@@ -249,7 +261,7 @@ $(function(){
 								<span class="input-group-addon"> <i
 									class="material-icons">face</i>
 								</span> <input type="text" class="form-control" placeholder="ID"
-									name="userid" id="userid">
+									name="userid" id="joinid">
 							</div>
 
 							<div class="input-group">
