@@ -91,6 +91,7 @@ public class BoardController {
 	public @ResponseBody ArrayList<Board> boardList() {
 		String id = (String) session.getAttribute("loginId");
 		ArrayList<Board> list = boardRepository.boardList(id);
+		
 		return list;
 	}
 
