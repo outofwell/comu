@@ -27,7 +27,7 @@
 <title>Insert title here</title>
 <style>
 .navbar-header{
-height: 50px;
+height: 30px;
 }
 </style>
 <script>
@@ -54,7 +54,7 @@ $(function(){
 
 	<!-- Navbar -->
 	<nav
-		class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
+		class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll" style="background-image: url('resources/images/galaxy-3.jpg'); font-color:red;">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"

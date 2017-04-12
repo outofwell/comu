@@ -99,6 +99,12 @@ public class HomeController {
 	public String test2() {
 		return "testing2";
 	}
+	
+	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	public String join() {
+		return "join";
+	}
+	
 	//======테스트 페이지 END
 
 	

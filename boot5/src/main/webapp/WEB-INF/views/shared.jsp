@@ -92,7 +92,7 @@
 	</head>
 	<body class="qt-debug-disabled">
 	<!-- QT HEADER END ================================ -->
-			
+				<jsp:include page="navigation.jsp" flush="false" />
 	<!-- ====================== MENU ================================================ -->
 	<div id="menu" class="qt-menu-wrapper" data-0-top>
 		<nav id="stickymenu" class="qt-menu grey-text text-lighten-4"  >
@@ -154,11 +154,19 @@
 							    </div>
 							    <div id="col${board.boardnum}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="head${board.boardnum}">
 							      <div class="panel-body">
-							         <table style="table-layout:fixed; margin:-10px;">
-							         <tr><td colspan='2'><textarea>코드: ${board.content}</textarea></td></tr>
-							         <tr><td colspan='2'><textarea>내용: ${board.content}</textarea></td></tr>
-								  	 <tr class='border'><td style="width:50px; margin:auto; text-align:right;">ID : </td><td>댓글내용~~~gg
-								  	 <tr class='border'><td colspan='2'><input type="text" placeholder="reply" style="width:300px;"> <button class="btn btn-primary btn-sm">등록</button></td></tr>
+							      
+							     <table style="table-layout:fixed; margin:-10px;">
+							         <tr><td colspan='2'><textarea  class="materialize-textarea" >코드: ${board.content}</textarea></td></tr>
+							         <tr><td colspan='2'><textarea  class="materialize-textarea" >내용: ${board.content}</textarea></td></tr>
+							      </table>
+							      
+							       <table class='border' style="table-layout:fixed; margin:-10px;">
+								  	 <tr>
+									  	 <td id="imgtable" class='border' style="width:50px; margin:auto; text-align:center;">reply ID</td>
+									  	 <td style="text-align:left;"><span style="font-weight: bold;">reply content</span>
+									  	 <td>
+								  	 </tr>
+								  	 <tr><td>${board.userid}</td><td nowrap><span style="display:inline;"><input type="text" placeholder="reply" style="width:300px; display:inline;"> <input type="button" value="등록"></span></td></tr>
 								  	 
 								  	 </table>
 								   </div>
@@ -168,24 +176,37 @@
 							  						
 							<c:forEach var="board" items="${boardList}" begin="1">
 							  <div class="panel panel-default">
-							    <div class="panel-heading" role="tab" id="head${board.boardnum}" style="height:80px;">
+							    <div class="panel-heading" role="tab" id="head${board.boardnum}">
 							      <div class="panel-title">
 							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#col${board.boardnum}" aria-expanded="false" aria-controls="col${board.boardnum}">
-							         <table class='border' style="table-layout:fixed; margin:auto; height:50px;">
-								  	 <tr><td rowspan='2' id="imgtable" class='border'><img src="resources/covers/${board.cover_re}" alt="image" style="width:50px;height:50px;"></td><td style="text-align:left;">${board.title}</td></tr>
-							  	 	<tr><td style="text-align:left;">${board.title}</td></tr>
+							        <table class='border' style="table-layout:fixed; margin:-10px;">
+								  	 <tr>
+									  	 <td rowspan="2" id="imgtable" class='border' style="width:50px; margin:auto; text-align:center;"><img src="resources/covers/${board.cover_re}" alt="image" style="width:50px;height:50px; text-align:center;"></td>
+									  	 <td style="text-align:left;"><span style="font-weight: bold;">${board.userid}</span>
+									  		<br>${board.title}
+									  		<br><span style="color: blue;">Like / Comment</span></td>
+									  	 <td>
+								  	 </tr>
 							  	 	</table>
 							        </a>
 							      </div>
 							    </div>
 							    <div id="col${board.boardnum}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="head${board.boardnum}">
 							      <div class="panel-body">
-							         <table style="table-layout:fixed; margin:auto; height:50px;">
-							         <tr><td colspan='2'>코드: ${board.content}</td></tr>
-							         <tr><td colspan='2'>내용: ${board.content}</td></tr>
-								  	 <tr class='border'><td colspan='2'><button class="btn btn-primary btn-sm">구독</button> <button class="btn btn-primary btn-sm">♥</button></td></tr>
-								  	 <tr class='border' style="border-top: solid 1px black;"><td style="width:10px;">idid : </td><td>댓글내용~~~~~~~~~~~~~~~
-								  	 <tr class='border'><td colspan='2'><input type="text" placeholder="reply"> <button class="btn btn-primary btn-sm">등록</button></td></tr>
+							      
+							     <table style="table-layout:fixed; margin:-10px;">
+							         <tr><td colspan='2'><textarea  class="materialize-textarea" >코드: ${board.content}</textarea></td></tr>
+							         <tr><td colspan='2'><textarea  class="materialize-textarea" >내용: ${board.content}</textarea></td></tr>
+							      </table>
+							      
+							       <table class='border' style="table-layout:fixed; margin:-10px;">
+								  	 <tr>
+									  	 <td id="imgtable" class='border' style="width:50px; margin:auto; text-align:center;">reply ID</td>
+									  	 <td style="text-align:left;"><span style="font-weight: bold;">reply content</span>
+									  	 <td>
+								  	 </tr>
+								  	 <tr><td>${board.userid}</td><td nowrap><input type="text" placeholder="reply" style="width:300px;"> <input type="button" value="등록"></td></tr>
+								  	 
 								  	 </table>
 								   </div>
 							    </div>

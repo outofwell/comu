@@ -172,11 +172,11 @@ $(document).ready(function() {
 <jsp:include page="navigation.jsp" flush="false"/>
 
 <div class="wrapper">
-	<div class="header header-filter" style="background-image: url('resources/assets/img/bg2.jpeg');">
+	<div class="header" style="background-image: url('resources/images/galaxy-3.jpg');">
 	</div>
 
 	<div class="main main-raised">
-		<div class="section section-basic">
+		<div class="section section-basic" style="background-color:white; opacity:0.5;">
 
 			<form id="form1" runat="server" action="save" method="post" enctype="multipart/form-data">
 	    	<div class="container">
