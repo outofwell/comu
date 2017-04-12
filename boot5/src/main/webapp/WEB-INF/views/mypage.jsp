@@ -11,8 +11,6 @@
 
 <title>MY PAGE</title>
 <script type="text/javascript" src="resources/jquery-3.1.1.min.js"></script>
-<script src="resources/js/Readmore.js"></script>
-<script src="/node_modules/readmore-js/readmore.min.js"></script>
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
 <script type="text/javascript">

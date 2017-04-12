@@ -8,24 +8,6 @@
 		<title>SONIK HTML TEMPLATE</title>
 		<meta name="description" content="The Incredible Music HTML Template">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	
-	    <script type="text/javascript" src="resources/js/jquery-3.1.1.min.js"></script>
-	    <!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-		
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-			
-		<link href='resources/https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-		<link href='resources/components/slick/slick.css' rel='stylesheet' type='text/css'>
-		<link href='resources/components/swipebox/src/css/swipebox.min.css' rel='stylesheet' type='text/css'>
-		<link href='resources/fonts/iconfont/style.css' rel='stylesheet' type='text/css'>
-		<link href='resources/fonts/qticons/qticons.css' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="resources/css/qt-main.css"><!-- INCLUDES THE CSS FRAMEWORK VIA #IMPORT AND SASS -->
-		<link rel="shortcut icon" type="image/png" href="resources/resources/images/favicon.png"/>
 		
 		<style>
 		.center{text-align:center;}
@@ -224,57 +206,5 @@
 			</main>
 			<!-- main section end ================================ -->
 
-			<!-- footer section  ================================ -->
-			
-	<!-- ====================== FOOTER ================================================ -->
-	<footer class="qt-footer parallax-container blue-grey-text text-lighten-5">
-		<div class="parallax"><img src="resources/images/galaxy-3.jpg" alt="background"></div>
-		<div class="container center-align"  >
-			<h3 class="qt-footertitle"><img src="resources/images/logo-footer.png" alt="Sonik Music HTML template"></h3>
-			<h5>Copyright 2016 <a href="http://qantumthemes.com">QANTUMTHEMES</a>: TOP MUSIC WEBSITES.</h5>
-			<p class="qt-social">
-				<a href="#"><span class="qticon-beatport"></span></a>
-				<a href="#"><span class="qticon-facebook"></span></a>
-				<a href="#"><span class="qticon-twitter"></span></a>
-				<a href="#"><span class="qticon-youtube"></span></a>
-				<a href="#"><span class="qticon-soundcloud"></span></a>
-			</p>
-		</div>
-		<div class="qt-particles" id="particlesfooter" data-color="#ffffff" data-opacity="0.2" data-speed="1"></div>
-	</footer>
-	<div class="qt-firefoxfix"></div>
-	<!-- ====================== FOOTER END ================================================ -->
-		<!-- footer section end  ================================ -->
-
-		<!-- QT FOOTER ================================ -->
-		<script src="resources/js/modernizr-custom.js"></script>
-		<script src="resources/js/jquery.js"></script><!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
-		<script src="resources/js/jquery-migrate.min.js"></script><!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
-
-		<!--  CUSTOM JS LIBRARIES: =========================================================== -->
-		
-		<script src="resources/js/materializecss/bin/materialize.min.js"></script>
-		<script src="resources/components/slick/slick.min.js"></script>
-		<script src="resources/components/skrollr/skrollr.min.js"></script>
-		<script src="resources/components/particles/particles.min.js"></script>
-		
-		<script src="resources/components/swipebox/lib/ios-orientationchange-fix.js"></script>
-		<script src="resources/components/swipebox/src/js/jquery.swipebox.min.js"></script>
-		
-		<!-- MAIN JAVASCRIPT FILE ================================ -->
-		<script src="resources/js/qt-main.js"></script>
-		<script src="resources/js/Readmore.js"></script>
-		<script>
-		    $('#info').readmore({
-		      moreLink: '<a href="#">Usage, examples, and options</a>',
-		      collapsedHeight: 384,
-		      afterToggle: function(trigger, element, expanded) {
-		        if(! expanded) { // The "Close" link was clicked
-		          $('html, body').animate({scrollTop: element.offset().top}, {duration: 100});
-		        }
-		      }
-		    });
-		    $('article').readmore({speed: 500});
- 		 </script>
 	</body>
 </html>

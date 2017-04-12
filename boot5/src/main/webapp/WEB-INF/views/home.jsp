@@ -7,139 +7,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 <script src="resources/js/jquery-3.1.1.min.js"></script>
-<link rel="stylesheet" href="resources/css/qt-main.css"><!-- INCLUDES THE CSS FRAMEWORK VIA #IMPORT AND SASS -->
 		<script src="resources/js/qt-main.js"></script>
 <title>HiCu Testing</title>
 </head>
 
 <style>
-.qt-particles {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%; }
 </style>
 
 <script>
-
-$(function(){
-	$.fn.qtparticlesJs = function(){
-		if($("body").hasClass("mobile")){
-			return;
-		}
-		$(".qt-particles").each(function(i,c){
-			console.log("particlesJs");
-			var that= $(this),
-				boxid = that.attr("id");
-			console.log(boxid);
-			particlesJS(boxid, {
-				"particles": {
-					"number": {
-						"value": 160,
-						"density": {
-							"enable": true,
-							"value_area": 800
-						}
-					},
-					"color": {
-						"value": !that.attr("data-color") ? "#FFFFFF" : that.attr("data-color")
-					},
-					"shape": {
-						"type": "polygon",
-						"stroke": {
-							"width": 0,
-							"color": "#000000"
-						},
-						"polygon": {
-							"nb_sides": 3
-						}
-					},
-					"opacity": {
-						"value":  !that.attr("data-opacity") ? "0.5" : that.attr("data-opacity"),
-						"random": true,
-						"anim": {
-							"enable": true,
-							"speed": 1,
-							"opacity_min": 0,
-							"sync": false
-						}
-					},
-					"size": {
-						"value": 5,
-						"random": true,
-						"anim": {
-							"enable": false,
-							"speed": 50,
-							"size_min": 0.1,
-							"sync": false
-						}
-					},
-					"line_linked": {
-						"enable": that.attr("data-lines") ? true : false,
-						"distance": 150,
-						"color": !that.attr("data-color") ? "#FFFFFF" : that.attr("data-color"),
-						"opacity": !that.attr("data-opacity") ? "0.5" : that.attr("data-opacity"),
-						"width": 1
-					},
-					"move": {
-						"enable": true,
-						"speed": !that.attr("data-speed") ? 1 : that.attr("data-speed"),
-						"direction": "none",
-						"random": true,
-						"straight": false,
-						"out_mode": "out",
-						"bounce": false,
-						"attract": {
-							"enable": false,
-							"rotateX": 600,
-							"rotateY": 1200
-						}
-					}
-				},
-				"interactivity": {
-					"detect_on": "canvas",
-					"events": {
-						"onhover": {
-							"enable": false,
-							"mode": "grab"
-						},
-						"onclick": {
-							"enable": true,
-							"mode": "push"
-						},
-						"resize": true
-					},
-					"modes": {
-						"grab": {
-							"distance": 140,
-							"line_linked": {
-								"opacity": 1
-							}
-						},
-						"bubble": {
-							"distance": 400,
-							"size": 40,
-							"duration": 2,
-							"opacity": 8,
-							"speed": 3
-						},
-						"repulse": {
-							"distance": 200,
-							"duration": 0.4
-						},
-						"push": {
-							"particles_nb": 4
-						},
-						"remove": {
-							"particles_nb": 2
-						}
-					}
-				},
-				"retina_detect": true
-			});
-		});
-	}
-});
 </script>
 
 <body class="index-page">

@@ -161,7 +161,7 @@ $(document).ready(function() {
     	var form = document.getElementById("form1");
     	
     	var code = document.getElementById("code").value;
-    	var title = document.getElementById("title").value;i    	
+    	var title = document.getElementById("title").value;   	
     	if(code != '' && title != ''){
     		form.action="save"; 
         	form.submit();
@@ -189,6 +189,11 @@ $(document).ready(function() {
 	border : 1px lightgray;
 	border-radius : 5px;
 }
+
+#white{
+  background: white;
+  border-radius: 10px;
+}
 </style>
 </head>
 
@@ -201,7 +206,7 @@ $(document).ready(function() {
 	</div>
 
 	<div class="main main-raised">
-		<div class="section section-basic" style="background-color:white; opacity:0.5;">
+		<div class="section section-basic" id= "white">
 
 			<form id="form1" runat="server" action="save" method="post" enctype="multipart/form-data">
 	    	<div class="container">
@@ -241,7 +246,7 @@ $(document).ready(function() {
 					
 			    	<div class="col-md-6">	<!-- 오른쪽 -->
 			    	<h3>PLAY</h3>
-<div><img src="http://placehold.it/450x250"></div>
+					<div><img src="http://placehold.it/450x250"></div>
 			    	<hr>
 			    		<div class="row">
 							<div class="col-md-4">
@@ -254,10 +259,10 @@ $(document).ready(function() {
 							<div class="col-md-8">
 								<div class="form-group">
 		   							<div class="form-group label-floating">
-										<label class="control-label">Title</label>
+										<label class="control-label">Titile</label>
 		   									<input type="text" class="form-control" name="file_title" id="title" value="${file.file_title}" /><br>
 		   							</div>
-		   		</form>
+		   							</div>
 									<a href="#pablo" class="btn btn-primaru btn-primary" 
 									data-toggle="modal" data-target="#list" id="load">Load</a>
 									<button class="btn btn-primary" onclick="save()">Save</button>
@@ -266,15 +271,11 @@ $(document).ready(function() {
 						</div>
 					</div>
 				</div>
+				</form>
 			</div>
 		
 		</div>
-	    <footer class="footer">
-		    <div class="container">
-		    </div>
-		</footer>
 	</div>
-</div>
 
 <!-- Modal Core -->
 <div class="modal fade" id="list" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
