@@ -105,7 +105,7 @@ $(document).ready(function() {
     }
     
 	//전체 파일 리스트 불러오기
-    $(function(){
+    /* $(function(){
     	$("#load").on('click', function(){
     		$.ajax({
     			type : "get", 
@@ -128,9 +128,9 @@ $(document).ready(function() {
     			}
     		});
     	});
-    });
+    }); */
     
-    /* //개인 파일 리스트 불러오기
+    //개인 파일 리스트 불러오기
     $(function(){
     	$("#load").on('click', function(){
     		$.ajax({
@@ -154,14 +154,14 @@ $(document).ready(function() {
     			}
     		});
     	});
-    }); */
+    });
     
     //파일 저장
     function save(){
     	var form = document.getElementById("form1");
     	
     	var code = document.getElementById("code").value;
-    	var title = document.getElementById("title").value;i    	
+    	var title = document.getElementById("title").value; 	
     	if(code != '' && title != ''){
     		form.action="save"; 
         	form.submit();

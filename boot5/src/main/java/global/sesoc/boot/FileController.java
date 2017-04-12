@@ -55,7 +55,9 @@ public class FileController {
 		
 		if(file.getFilenum() == 0){
 			fileRepository.saveFile(file);		//저장 (Save)
+			
 		}else{
+			
 			fileRepository.updateFile(file);	//덮어쓰기 (Update)	//****ajax 형식으로 변환할 것!!
 		}
 		return "comu";
