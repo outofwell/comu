@@ -65,8 +65,15 @@ public class FileController {
 	//모든 음악 목록 불러오기(ajax)
 	@RequestMapping(value="/fileList", method=RequestMethod.GET)
 	public @ResponseBody ArrayList<Files> fileList(){
-		ArrayList<Files> list = fileRepository.fileList();
-		return list;
+		ArrayList<Files> fileList = fileRepository.fileList();
+		return fileList;
+	}
+	
+	// 개인 음악 목록 불러오기(ajax)
+	@RequestMapping(value = "/userlist", method=RequestMethod.GET)
+	public @ResponseBody ArrayList<Files> userlist(HttpSession session) {
+		ArrayList<Files> userlist = fileRepository.userlist((String)session.getAttribute("loginId"));
+		return userlist;
 	}
 	
 	

@@ -104,7 +104,7 @@ $(document).ready(function() {
         }
     }
     
-    //전체 파일 리스트 불러오기
+	//전체 파일 리스트 불러오기
     $(function(){
     	$("#load").on('click', function(){
     		$.ajax({
@@ -128,8 +128,33 @@ $(document).ready(function() {
     			}
     		});
     	});
-    	
     });
+    
+    /* //개인 파일 리스트 불러오기
+    $(function(){
+    	$("#load").on('click', function(){
+    		$.ajax({
+    			type : "get", 
+    			url : "userlist", 
+    			success : function(resp){
+    				var msg="<table class='table' id='loadlist'><tr>";
+    				
+    				$.each(resp, function(index, item){
+    					//img 주소 : 테스트용 임시 주소!!
+    					msg+='<td class="btn btn-white"><a href="load?filenum='+item.filenum+'"><img src="resources/covers/'+item.cover_re+'" style="width:80px; height:80px; border-radius:5px;"></a><br>';
+    					msg+=item.file_title+'</td>';
+    					if((index+5) % 4 == 0){ 
+    						msg+= "</tr><tr>"; 
+    					}
+    				});
+    				
+    				msg += "</tr><table>";
+    				
+    				$("#loader").html(msg);
+    			}
+    		});
+    	});
+    }); */
     
     //파일 저장
     function save(){

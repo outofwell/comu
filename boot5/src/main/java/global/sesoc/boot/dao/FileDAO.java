@@ -12,6 +12,9 @@ public interface FileDAO {
 	
 	//COMU - LOAD - 모든 파일 리스트 불러오기
 	public ArrayList<Files> fileList() throws Exception;
+	
+	//COMU - LOAD - 개인 파일 리스트 불러오기
+	public ArrayList<Files> userlist(String userid) throws Exception;
 
 	//COMU - LOAD - 특정 파일 불러오기
 	public Files loadFile(int filenum) throws Exception;
