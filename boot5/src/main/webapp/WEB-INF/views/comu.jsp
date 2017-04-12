@@ -194,6 +194,12 @@ $(document).ready(function() {
   background: white;
   border-radius: 10px;
 }
+
+.col-md-6{
+width: 400px;
+}
+
+#saving{ padding: 5px;}
 </style>
 </head>
 
@@ -209,7 +215,7 @@ $(document).ready(function() {
 		<div class="section section-basic" id= "white">
 
 			<form id="form1" runat="server" action="save" method="post" enctype="multipart/form-data">
-	    	<div class="container">
+	    	<div class="container" style="margin:auto;">
 			<input type="hidden" name="userid" value="${loginId}">
 			<input type="hidden" name="file_type" value="comu"> 
 			<c:if test="${not empty file.filenum}">
@@ -248,26 +254,31 @@ $(document).ready(function() {
 			    	<h3>PLAY</h3>
 					<div><img src="http://placehold.it/450x250"></div>
 			    	<hr>
-			    		<div class="row">
-							<div class="col-md-4">
+			    		<table id="saving">
 							<!-- img 주소 : 테스트용 임시 주소!! -->
+							<tr><td>
 							<img id="imgView" src="resources/covers/${file.cover_re}" onERROR="this.src='resources/assets/img/robot.png'" style="width:100px; height:100px; border-radius:100px;">
-								<label class="btn btn-primary btn-sm">
-					                get Cover&hellip; <input type="file" style="display: none;" id="imgInp" name="upload" />
-					            </label>
-							</div>
-							<div class="col-md-8">
+							</td>
+					        <td style="width:300px">
 								<div class="form-group">
 		   							<div class="form-group label-floating">
 										<label class="control-label">Titile</label>
 		   									<input type="text" class="form-control" name="file_title" id="title" value="${file.file_title}" /><br>
 		   							</div>
-		   							</div>
-									<a href="#pablo" class="btn btn-primaru btn-primary" 
+		   						</div>
+		   					</td>
+		   					<tr>
+		   					<td>	<label class="btn btn-primary btn-sm">
+					                get Cover&hellip; <input type="file" style="display: none;" id="imgInp" name="upload" />
+					            </label>
+					        </td>
+		   					<td style="text-align:right;">
+									<a href="#pablo" class="btn btn-primary" 
 									data-toggle="modal" data-target="#list" id="load">Load</a>
 									<button class="btn btn-primary" onclick="save()">Save</button>
-								</div>
-							</div>
+							</td>
+							</tr>		
+							</table>
 						</div>
 					</div>
 				</div>

@@ -32,46 +32,12 @@
 										<!-- Collapse -->
 							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="width:600px; margin:auto;">
 							
-							<c:forEach var="board" items="${boardList}" end="0">
-								<div class="panel panel-default">
-							    <div class="panel-heading" role="tab" id="head${board.boardnum}">
-							      <div class="panel-title">
-							        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#col${board.boardnum}" aria-expanded="true" aria-controls="col${board.boardnum}">
-							         <table class='border' style="table-layout:fixed; margin:-10px;">
-								  	 <tr>
-									  	 <td rowspan="2" id="imgtable" class='border' style="width:80px; margin:auto; text-align:center;"><img src="resources/covers/${board.cover_re}" alt="image" style="width:50px;height:50px; text-align:center;"></td>
-									  	 <td style="text-align:left;"><span style="font-weight: bold;">${board.userid}</span>
-									  		<br>${board.title}
-									  	</td>	
-								  	 </tr>
-							  	 	</table>
-							        </a>
-							      </div>
-							    </div>
-							    <div id="col${board.boardnum}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="head${board.boardnum}">
-							      <div class="panel-body">
-							      
-							     <table>
-							         <tr><td colspan='2'><textarea class="form-control" style="width:500px;" >코드: ${board.content}</textarea></td></tr>
-							         <tr><td colspan='2'><textarea class="form-control" style="width:500px;" >내용: ${board.content}</textarea></td></tr>
-								  	 <tr><td><button class="btn btn-primary btn-xs">subscribe</button><button class="btn btn-primary btn-xs">like</button></td></tr>
-								  	 <tr>
-									  	 <td id="imgtable" class='border' style="padding:5px;">reply ID</td>
-									  	 <td>reply content</td>
-								  	 </tr>
-								  	 <tr><td><input type="text" class="form-control" placeholder="reply" style="width:400px; display:inline;"><td><button>확인</button></td></tr>
-								  	 </table>
-								   </div>
-							    </div>
-							  </div>
-							 </c:forEach> 
-							  						
-							<c:forEach var="board" items="${boardList}" begin="1">
+							<c:forEach var="board" items="${boardList}">
 							  <div class="panel panel-default">
 							    <div class="panel-heading" role="tab" id="head${board.boardnum}">
 							      <div class="panel-title">
 							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#col${board.boardnum}" aria-expanded="false" aria-controls="col${board.boardnum}">
-<table class='border' style="table-layout:fixed; margin:-10px;">
+									<table class='border' style="table-layout:fixed; margin:-10px;">
 								  	 <tr>
 									  	 <td rowspan="2" id="imgtable" class='border' style="width:80px; margin:auto; text-align:center;"><img src="resources/covers/${board.cover_re}" alt="image" style="width:50px;height:50px; text-align:center;"></td>
 									  	 <td style="text-align:left;"><span style="font-weight: bold;">${board.userid}</span>
