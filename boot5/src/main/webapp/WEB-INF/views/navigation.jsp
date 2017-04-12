@@ -40,7 +40,8 @@ $(function(){
 			, success : function(resp) {
 				if(resp == "errorMsg") {
 					$(".dropdown").attr("class", "dropdown open");
-					$('#d').html('<div class="alert alert-info"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"><i class="material-icons">clear</i></span></button><b>Info alert:</b> 내용</div>');
+					$('#error_text').html('<div class="form-group label-floating has-error"><label class="control-label">ID 또는 비밀번호가 틀리셨습니다.</label><input type="email" value="" class="form-control" /><span class="material-icons form-control-feedback">clear</span></div>');
+					/* '<div class="alert alert-info"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"><i class="material-icons">clear</i></span></button><b>Info alert:</b> 내용</div>' */
 				} else {
 					location.href=resp;
 				}
@@ -87,7 +88,7 @@ $(function(){
 							<ul class="dropdown-menu dropdown-menu-right">
 								<li>
 									<div class="col-sm-12">
-										<div id="d"></div>
+										<!-- <div id="error_text"></div> -->
 											<form class="form" method="post" action="login">
 										<div class="content">
 												<div class="input-group">
@@ -109,8 +110,8 @@ $(function(){
 											<a href="#pablo" class="btn btn-simple btn-primary btn-lg">
 												<button class="btn btn-primary" id="login">LOGIN</button>
 											</a>
-											
 											<hr>
+											<div id="error_text"></div>
 											<a href="#pablo" class="btn btn-simple btn-primary btn-lg">
 												<button class="btn btn-primary btn-simple"
 													data-toggle="modal" data-target="#joinModal">JOIN</button>
