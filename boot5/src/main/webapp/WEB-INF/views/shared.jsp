@@ -76,8 +76,7 @@
 									  	 <td rowspan="2" id="imgtable" class='border' style="width:80px; margin:auto; text-align:center;"><img src="resources/covers/${board.cover_re}" alt="image" style="width:50px;height:50px; text-align:center;"></td>
 									  	 <td style="text-align:left;"><span style="font-weight: bold;">${board.userid}</span>
 									  		<br>${board.title}
-									  		<br><span style="color: blue;">Like / Comment</span></td>
-									  	 <td>
+									  	</td>
 								  	 </tr>
 							  	 	</table>
 							        </a>
@@ -86,15 +85,15 @@
 							    <div id="col${board.boardnum}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="head${board.boardnum}">
 							      <div class="panel-body">
 							      
-<table>
+							     <table>
 							         <tr><td colspan='2'><textarea class="form-control" style="width:500px;" >코드: ${board.content}</textarea></td></tr>
 							         <tr><td colspan='2'><textarea class="form-control" style="width:500px;" >내용: ${board.content}</textarea></td></tr>
+								  	 <tr><td><button class="btn btn-primary btn-xs">subscribe</button><button class="btn btn-primary btn-xs">like</button></td></tr>
 								  	 <tr>
-									  	 <td id="imgtable" class='border' style="width:50px; margin:auto; text-align:center;">reply ID</td>
+									  	 <td id="imgtable" class='border' style="padding:5px;">reply ID</td>
 									  	 <td>reply content</td>
 								  	 </tr>
-								  	 <tr><td style="width:50px;">${board.userid}</td><td><input type="text" class="form-control" placeholder="reply" style="width:400px; display:inline;"><td><button>확인</button></td></tr>
-								  	 
+								  	 <tr><td><input type="text" class="form-control" placeholder="reply" style="width:400px; display:inline;"><td><button>확인</button></td></tr>
 								  	 </table>
 								   </div>
 							    </div>
