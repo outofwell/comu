@@ -28,8 +28,8 @@
 	<!-- 개인 파일 목록 불러오기 -->
 	<select id="userlist" parameterType="String" resultType="File">
 		SELECT * FROM cm_file
-		ORDER BY filenum DESC
 		WHERE userid = #{userid}
+		ORDER BY FILENUM DESC
 	</select>
 	
 	<!-- 특정 파일 불러오기 -->
