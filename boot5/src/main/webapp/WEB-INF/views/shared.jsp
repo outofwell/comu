@@ -91,7 +91,7 @@
 								  	 <tr><td><button class="btn btn-primary btn-xs">subscribe</button><button class="btn btn-primary btn-xs">like</button></td></tr>
 								  	 <tr>
 									  	 <td id="imgtable" class='border' style="padding:5px;">reply ID</td>
-									  	 <td>reply content</td>
+									  	 <td>reply contents</td>
 								  	 </tr>
 								  	 <tr><td><input type="text" class="form-control" placeholder="reply" style="width:400px; display:inline;"><td><button>확인</button></td></tr>
 								  	 </table>
