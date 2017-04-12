@@ -129,12 +129,20 @@ public class BoardController {
 	}
 
 	// 댓글 등록 int writeReply(Reply reply) return "result"; //(ajax)성공여부 전송
-	@RequestMapping(value = "/writeReply", method = RequestMethod.GET)
-	public String writeReply(Reply reply) {
-		boardRepository.writeReply(reply);
-		return "result";
+	public String replyWrite(Reply reply, HttpSession session) {
+		int result = 0;
+		
+		String loginId = (String) session.getAttribute("loginId");
+		
+		reply.setUserid(loginId);
+		
+		System.out.println("댓글 : " + reply);
+		
+		result = boardRepository.replyWrite(reply);
+		
+		return "redirect:shared?boardnum=" + reply.getBoardnum();
 	}
-
+	
 	// 댓글 수정 int updateReply(Reply reply) return "result";
 	@RequestMapping(value = "/updateReply", method = RequestMethod.GET)
 	public String updateReply(Reply reply) {
@@ -145,8 +153,11 @@ public class BoardController {
 	// 댓글 삭제 int deleteReply(int Replynum) return "result";
 	@RequestMapping(value = "/deleteReply", method = RequestMethod.GET)
 	public String deleteReply(int Replynum) {
-		boardRepository.deleteReply(Replynum);
-		return "result";
+		int result = boardRepository.deleteReply(Replynum);
+		
+		System.out.println("삭제완료 ==> " + result + "개");
+		
+		return "shard";
 	}
 
 	// ****좋아요 리스트 (랭킹[기간별/전체/] / 특정사용자의LIKE리스트[나/남])

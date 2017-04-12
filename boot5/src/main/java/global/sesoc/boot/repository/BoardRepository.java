@@ -109,18 +109,33 @@ public class BoardRepository {
 	}
 
 	// 댓글 등록
-	public int writeReply(Reply reply) {
+	public int replyWrite(Reply reply) {
 		BoardDAO dao = sqlSession.getMapper(BoardDAO.class);
-
+		
 		int result = 0;
-
+		
 		try {
-			result = dao.writeReply(reply);
+			result = dao.replyWrite(reply);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
 		return result;
+	}
+	
+	// 댓글 가져오기
+	public List<Reply> replylist(int boardnum) {
+		BoardDAO dao = sqlSession.getMapper(BoardDAO.class);
+		
+		List<Reply> replylist = null;
+		
+		try {
+			replylist = dao.replylist(boardnum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return replylist;
 	}
 
 	// 댓글 수정
@@ -139,13 +154,16 @@ public class BoardRepository {
 	}
 
 	// 댓글 삭제
-	public int deleteReply(int Replynum) {
+	public int deleteReply(int replynum) {
 		BoardDAO dao = sqlSession.getMapper(BoardDAO.class);
 
 		int result = 0;
-
+		
+		Reply reply = new Reply();
+		reply.setReplynum(replynum);
+		
 		try {
-			result = dao.deleteReply(Replynum);
+			result = dao.deleteReply(reply);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
