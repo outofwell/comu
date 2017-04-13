@@ -84,13 +84,33 @@
 															ID</td>
 														<td>reply content</td>
 													</tr>
-													<tr>
+													<!-- <tr>
 														<td><input type="text" class="form-control"
 															placeholder="reply"
 															style="width: 400px; display: inline;">
 														<td><button>확인</button></td>
-													</tr>
+													</tr> -->
 												</table>
+
+
+												<form action="replyWrite" method="get">
+													<input type="text" class="form-control" placeholder="reply"
+														style="width: 400px; display: inline;" name="replytext"
+														id="replytext" /> <input type="hidden" name="boardnum"
+														value="${board.boardnum}" /> <input type="submit"
+														value="확인" />
+												</form>
+
+												<table>
+													<c:forEach var="reply" items="${replylist}">
+														<tr>
+															<td>${reply.userid}</td>
+															<td>${reply.replytext}</td>
+															<td>${reply.inputdate}</td>
+														</tr>
+													</c:forEach>
+												</table>
+
 											</div>
 										</div>
 									</div>

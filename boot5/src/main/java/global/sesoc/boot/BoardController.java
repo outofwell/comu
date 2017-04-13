@@ -88,9 +88,11 @@ public class BoardController {
 
 	// 글 목록 불러오기(개인) (ajax)
 	@RequestMapping(value = "/boardList", method = RequestMethod.GET)
-	public @ResponseBody ArrayList<Board> boardList() {
+	public @ResponseBody ArrayList<Board> boardList(Model model) {
 		String id = (String) session.getAttribute("loginId");
 		ArrayList<Board> list = boardRepository.boardList(id);
+		
+		
 		
 		return list;
 	}
@@ -130,6 +132,7 @@ public class BoardController {
 	}
 
 	// 댓글 등록 int writeReply(Reply reply) return "result"; //(ajax)성공여부 전송
+	@RequestMapping(value = "/replyWrite", method = RequestMethod.GET)
 	public String replyWrite(Reply reply, HttpSession session) {
 		int result = 0;
 		
