@@ -92,7 +92,15 @@ public class BoardController {
 		String id = (String) session.getAttribute("loginId");
 		ArrayList<Board> list = boardRepository.boardList(id);
 		
+		Board board = new Board();
 		
+		board.setUserid(id);
+		
+		List<Reply> replylist = boardRepository.replylist(board.getBoardnum());
+		
+		model.addAttribute("replylist", replylist);
+		
+		System.out.println("글 목록 당 댓글 : " + replylist);
 		
 		return list;
 	}
