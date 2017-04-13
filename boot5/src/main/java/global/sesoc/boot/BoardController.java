@@ -88,7 +88,7 @@ public class BoardController {
 
 	// 글 목록 불러오기(개인) (ajax)
 	@RequestMapping(value = "/boardList", method = RequestMethod.GET)
-	public @ResponseBody ArrayList<Board> boardList(Model model) {
+	public @ResponseBody ArrayList<Board> boardList() {
 		String id = (String) session.getAttribute("loginId");
 		ArrayList<Board> list = boardRepository.boardList(id);
 		return list;
@@ -139,12 +139,6 @@ public class BoardController {
 		System.out.println("댓글 : " + reply);
 		
 		boardRepository.replyWrite(reply);
-		
-		System.out.println("댓글 게시판 번호 : " + reply.getBoardnum()); 
-		
-		List<Reply> replylist = boardRepository.replylist(reply.getBoardnum());
-		
-		session.setAttribute("replylist", replylist);
 		
 		return "redirect:shared";
 	}

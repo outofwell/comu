@@ -1,28 +1,20 @@
 package global.sesoc.boot;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
 import global.sesoc.boot.repository.BoardRepository;
 import global.sesoc.boot.repository.FileRepository;
 import global.sesoc.boot.repository.UserRepository;
-import global.sesoc.boot.util.FileService;
 import global.sesoc.boot.vo.Board;
-import global.sesoc.boot.vo.Files;
-import global.sesoc.boot.vo.User;
+import global.sesoc.boot.vo.Reply;
 
 @Controller
 public class HomeController {
@@ -84,11 +76,29 @@ public class HomeController {
 		return "mypage";
 	}
 
-	@RequestMapping(value = "/shared", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/shared", method = RequestMethod.GET)
 	public String shared() {
 		ArrayList<Board> list = boardRepository.list();
 		System.out.println(list);
 		session.setAttribute("boardList", list);
+		return "shared";
+	}*/
+	
+	@RequestMapping(value = "/shared", method = RequestMethod.GET)
+	public String shared() {
+		ArrayList<Board> list = boardRepository.list();
+		session.setAttribute("boardList", list);
+		
+		for(Board board : list) {
+			System.out.println("test for-each boardnum : " + board.getBoardnum());
+			
+			List<Reply> replylist = boardRepository.replylist(board.getBoardnum());
+			
+			System.out.println("test for-each replylist : " + replylist);
+			
+			session.setAttribute("replylist", replylist);
+		}
+		
 		return "shared";
 	}
 
