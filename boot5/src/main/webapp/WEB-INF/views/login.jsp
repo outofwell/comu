@@ -25,7 +25,7 @@ $(function(){
 				if(resp == "errorMsg") {
 					alert("X");
 				} else {
-					location.href='main';
+					location.href=".";
 				}
 			}
 		});

@@ -45,13 +45,14 @@
 					</div>
 				</div>
 			</div>
-			<c:if test="${loginid!=null}">
+			<c:if test="${not empty loginId}">
 				<div class="main main-raised">
 				<div class="section section-basic">
 			    	<div class="container">
 			    		<div class="row">
 				    		<div class="col-md-12">
 								<h3>MAIN</h3>
+								<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			  				</div>
 						</div>
 		
@@ -64,11 +65,11 @@
 				    </div>
 				</footer>
 				</div>
-			<style>
-			.main-raised {
-				margin: -550px 30px 0px;
-			}
-			</style>
+				<style>
+				.main-raised {
+					margin: -550px 30px 0px;
+				}
+				</style>
 			</c:if>
 		</div>
 	</body>
