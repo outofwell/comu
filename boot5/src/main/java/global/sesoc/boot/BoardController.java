@@ -91,17 +91,6 @@ public class BoardController {
 	public @ResponseBody ArrayList<Board> boardList(Model model) {
 		String id = (String) session.getAttribute("loginId");
 		ArrayList<Board> list = boardRepository.boardList(id);
-		
-		Board board = new Board();
-		
-		board.setUserid(id);
-		
-		List<Reply> replylist = boardRepository.replylist(board.getBoardnum());
-		
-		model.addAttribute("replylist", replylist);
-		
-		System.out.println("글 목록 당 댓글: " + replylist);
-		
 		return list;
 	}
 
@@ -142,7 +131,6 @@ public class BoardController {
 	// 댓글 등록 int writeReply(Reply reply) return "result"; //(ajax)성공여부 전송
 	@RequestMapping(value = "/replyWrite", method = RequestMethod.GET)
 	public String replyWrite(Reply reply, HttpSession session) {
-		int result = 0;
 		
 		String loginId = (String) session.getAttribute("loginId");
 		
@@ -150,9 +138,15 @@ public class BoardController {
 		
 		System.out.println("댓글 : " + reply);
 		
-		result = boardRepository.replyWrite(reply);
+		boardRepository.replyWrite(reply);
 		
-		return "redirect:shared?boardnum=" + reply.getBoardnum();
+		System.out.println("댓글 게시판 번호 : " + reply.getBoardnum()); 
+		
+		List<Reply> replylist = boardRepository.replylist(reply.getBoardnum());
+		
+		session.setAttribute("replylist", replylist);
+		
+		return "redirect:shared";
 	}
 	
 	// 댓글 수정 int updateReply(Reply reply) return "result";

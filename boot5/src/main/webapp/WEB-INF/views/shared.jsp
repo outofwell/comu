@@ -90,6 +90,13 @@
 															style="width: 400px; display: inline;">
 														<td><button>확인</button></td>
 													</tr> -->
+													
+													<c:forEach var="reply" items="${replylist}">
+														<tr>
+															<td>${reply.userid} </td>
+															<td>${reply.replytext} </td>
+														</tr>
+													</c:forEach>
 												</table>
 
 
@@ -100,17 +107,6 @@
 														value="${board.boardnum}" /> <input type="submit"
 														value="확인" />
 												</form>
-
-												<table>
-													<c:forEach var="reply" items="${replylist}">
-														<tr>
-															<td>${reply.userid}</td>
-															<td>${reply.replytext}</td>
-															<td>${reply.inputdate}</td>
-														</tr>
-													</c:forEach>
-												</table>
-
 											</div>
 										</div>
 									</div>
