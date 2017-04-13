@@ -100,7 +100,7 @@ public class BoardController {
 		
 		model.addAttribute("replylist", replylist);
 		
-		System.out.println("글 목록 당 댓글 : " + replylist);
+		System.out.println("글 목록 당 댓글: " + replylist);
 		
 		return list;
 	}
