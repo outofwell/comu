@@ -32,6 +32,7 @@ height: 30px;
 </style>
 <script>
 $(function(){
+	
 	$("#login").on('click', function(){
 		$.ajax({
 			url : "login"
@@ -60,6 +61,23 @@ $(function(){
 			}
 		});
 	});
+	
+	var loc = $(location).attr('pathname');
+	
+	if(loc == "/boot03/comu"){
+		$("#comu").attr("class", "active");
+	}else if(loc == "/boot03/mypage"){
+		$("#mypage").attr("class", "active");		
+	}else if(loc == "/boot03/shared"){
+		$("#shared").attr("class", "active");		
+	}else if(loc == "/boot03/howto"){
+		$("#howto").attr("class", "active");		
+	}else if(loc == "/boot03/aboutus"){
+		$("#aboutus").attr("class", "active");		
+	}else{
+		$("#home").attr("class", "active");
+	}
+	
 });
 </script>
 </head>
@@ -85,13 +103,12 @@ $(function(){
 
 			<div class="collapse navbar-collapse" id="navigation-index">
 				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><a href=".">MAIN</a></li>
-					<li><a href="comu">COMU</a></li>
-					<li><a href="hicu">HICU</a></li>
-					<li><a href="mypage">MyPage</a></li>
-					<li><a href="shared">Shared</a></li>
-					<li><a href="howto">HOW TO</a></li>
-					<li><a href="aboutus">ABOUT US</a></li>
+					<li id="home"><a href=".">MAIN</a></li>
+					<li id="comu"><a href="comu">COMU</a></li>
+					<li id="mypage"><a href="mypage">MyPage</a></li>
+					<li id="shared"><a href="shared">Shared</a></li>
+					<li id="howto"><a href="howto">HOW TO</a></li>
+					<li id="aboutus"><a href="aboutus">ABOUT US</a></li>
 					<li><a href="#"></a></li>
 					<c:if test="${empty loginId}">
 						<li class="dropdown"><a href="#" class="dropdown-toggle"

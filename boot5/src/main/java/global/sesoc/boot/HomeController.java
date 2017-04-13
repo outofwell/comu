@@ -45,9 +45,24 @@ public class HomeController {
 	
 
 	//======페이지 이동 START
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)	//로그인 전 메인 페이지
 	public String home() {
 		return "home";
+	}
+	
+	@RequestMapping(value = "/main", method = RequestMethod.GET)	//로그인 후 메인 페이지
+	public String main() {
+		return "main";
+	}
+	
+	@RequestMapping(value = "/loginpage", method = RequestMethod.GET)
+	public String loginpage() {
+		return "login";
+	}
+	
+	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	public String join() {
+		return "join";
 	}
 
 	@RequestMapping(value = "/comu", method = RequestMethod.GET)
@@ -99,12 +114,6 @@ public class HomeController {
 	public String test2() {
 		return "testing2";
 	}
-	
-	@RequestMapping(value = "/join", method = RequestMethod.GET)
-	public String join() {
-		return "join";
-	}
-	
 	//======테스트 페이지 END
 
 	

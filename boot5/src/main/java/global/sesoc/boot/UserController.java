@@ -30,10 +30,14 @@ public class UserController {
 	public @ResponseBody String login(String userid, String password, HttpSession session, HttpServletRequest request) {
 		User user = userRepository.login(userid, password);
 		
+		System.out.println(user);
+		System.out.println(user.getPassword());
+		System.out.println(password);
 		if(user != null) {
 			if(user.getPassword().equals(password)) {
 				session.setAttribute("loginId", user.getUserid());
 				String uri = request.getHeader("referer");
+				System.out.println(uri);
 				return uri;
 			}
 		}

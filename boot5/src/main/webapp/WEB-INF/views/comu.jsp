@@ -104,33 +104,7 @@ $(document).ready(function() {
         }
     }
     
-	//전체 파일 리스트 불러오기
-    /* $(function(){
-    	$("#load").on('click', function(){
-    		$.ajax({
-    			type : "get", 
-    			url : "fileList", 
-    			success : function(resp){
-    				var msg="<table class='table' id='loadlist'><tr>";
-    				
-    				$.each(resp, function(index, item){
-    					//img 주소 : 테스트용 임시 주소!!
-    					msg+='<td class="btn btn-white"><a href="load?filenum='+item.filenum+'"><img src="resources/covers/'+item.cover_re+'" style="width:80px; height:80px; border-radius:5px;"></a><br>';
-    					msg+=item.file_title+'</td>';
-    					if((index+5) % 4 == 0){ 
-    						msg+= "</tr><tr>"; 
-    					}
-    				});
-    				
-    				msg += "</tr><table>";
-    				
-    				$("#loader").html(msg);
-    			}
-    		});
-    	});
-    }); */
-    
-    //개인 파일 리스트 불러오기
+    //파일 리스트 불러오기
     $(function(){
     	$("#load").on('click', function(){
     		$.ajax({
@@ -196,7 +170,17 @@ $(document).ready(function() {
 }
 
 .col-md-6{
-width: 400px;
+max-width: 800px;
+}
+
+button{
+background: none;
+text-decoration: none;
+border: none;
+}
+
+button:hover{
+opacity: 0.5;
 }
 
 #saving{ padding: 5px;}
@@ -221,21 +205,21 @@ width: 400px;
 			<c:if test="${not empty file.filenum}">
 				<input type="hidden" name="filenum" value="${file.filenum}">
 			</c:if>
-	    		<div class="row">
-					<div class="col-md-6">	<!-- 왼쪽 -->
+	    		<div class="row" style="margin: auto; width: 1000px; max-width:1000px;">
+					<div class="col-md-6" style="width: 500px; max-width:500px;">	<!-- 왼쪽 -->
 						<h3>CODING</h3>
 						<div class="row">
 							<div class="col-md-10">
 								<div class="form-group label-floating">
 									<label class="control-label">Run Sample</label>
-									<textarea class="form-control" rows="4" name="sample" id="sample"></textarea>
+									<textarea class="form-control" rows="5" name="sample" id="sample"></textarea>
 								</div>
 							</div>
 							<div class="col-md-2">
-								<button class="btn btn-primary" onClick="return false;">▶</button>
-								<button class="btn btn-primary" name="under" id="under" onClick="return false;">▼</button>
+								<button onClick="return false;"><img src="resources/images/right-arrow.png" style="width:40px; height:40px;"></button>
 							</div>
 						</div>
+						<button name="under" id="under" onClick="return false;" style="text-align:center; margin:auto;"><img src="resources/images/down-arrow.png" style="width:40px; height:40px;"></button>
 						<div class="form-group label-floating">
 							<label class="control-label">Code</label>
 								<textarea class="form-control" rows="10" name="file_ori" id="code">${file.file_ori}</textarea>
@@ -245,21 +229,21 @@ width: 400px;
 								<div id="sliderRegular" class="slider"></div>
 							</div>
 							<div class="col-md-2">
-								<button class="btn btn-primary" onClick="return false;">▶</button>
+								<button onClick="return false;"><img src="resources/images/right-arrow.png" style="width:40px; height:40px;"></button>
 							</div>
 						</div>
 					</div>
 					
-			    	<div class="col-md-6">	<!-- 오른쪽 -->
+			    	<div class="col-md-6" style="width: 500px; max-width:500px;">	<!-- 오른쪽 -->
 			    	<h3>PLAY</h3>
-					<div><img src="http://placehold.it/450x250"></div>
-			    	<hr>
+					<div><img src="http://placehold.it/500x250"></div>
+					<hr>
 			    		<table id="saving">
 							<!-- img 주소 : 테스트용 임시 주소!! -->
 							<tr><td>
 							<img id="imgView" src="resources/covers/${file.cover_re}" onERROR="this.src='resources/assets/img/robot.png'" style="width:100px; height:100px; border-radius:100px;">
 							</td>
-					        <td style="width:300px">
+					        <td style="width:400px">
 								<div class="form-group">
 		   							<div class="form-group label-floating">
 										<label class="control-label">Titile</label>

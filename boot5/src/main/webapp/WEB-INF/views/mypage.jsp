@@ -211,23 +211,4 @@ td, img {
 	margin: -550px 30px 0px;
 }
 </style>
-<script src="resources/js/Readmore.js"></script>
-<script>
-	$('#info').readmore({
-		moreLink : '<a href="#">Usage, examples, and options</a>',
-		collapsedHeight : 384,
-		afterToggle : function(trigger, element, expanded) {
-			if (!expanded) { // The "Close" link was clicked
-				$('html, body').animate({
-					scrollTop : element.offset().top
-				}, {
-					duration : 100
-				});
-			}
-		}
-	});
-	$('article').readmore({
-		speed : 500
-	});
-</script>
 </html>
