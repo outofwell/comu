@@ -27,6 +27,7 @@
 			b.filenum = f.filenum
 		AND
 			b.userid = #{userid}
+		ORDER BY boardnum DESC
 	</select>
 	
 	<!-- 글 목록(전체) -->
@@ -34,6 +35,7 @@
 		SELECT * FROM cm_board b, cm_file f
 		WHERE
 			b.filenum = f.filenum
+		ORDER BY boardnum DESC
 	</select>
 	
 	<!-- 글 수정 -->
@@ -68,7 +70,7 @@
 				</when>
 			</choose>
 		</if>
-		ORDER BY boardnum
+		ORDER BY boardnum DESC
 	</select>
 	
 	<!-- 댓글 등록 -->
@@ -103,13 +105,14 @@
 	<!-- 댓글 전체 가져오기 -->
 	<select id="replyAll" resultType="Reply">
 		SELECT * FROM cm_reply
-		ORDER BY inputdate
+		ORDER BY inputdate DESC
 	</select>
 	
 	<!-- 댓글 불려오기 -->
 	<select id="replylist" resultType="Reply" parameterType="int">
 		SELECT * FROM cm_reply
 		WHERE boardnum = #{boardnum}
+		ORDER BY inputdate DESC
 	</select>
 	
 	<!-- 댓글 삭제 -->
