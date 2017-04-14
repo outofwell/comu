@@ -123,6 +123,21 @@ public class BoardRepository {
 		return result;
 	}
 	
+	// 댓글 전체 가져오기
+	public List<Reply> replyAll() {
+		BoardDAO dao = sqlSession.getMapper(BoardDAO.class);
+		
+		List<Reply> replyAll = null;
+		
+		try {
+			replyAll = dao.replyAll();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return replyAll;
+	}
+	
 	// 댓글 가져오기
 	public List<Reply> replylist(int boardnum) {
 		BoardDAO dao = sqlSession.getMapper(BoardDAO.class);

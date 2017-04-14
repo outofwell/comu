@@ -2,6 +2,7 @@ package global.sesoc.boot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -18,40 +19,38 @@ import global.sesoc.boot.vo.Reply;
 
 @Controller
 public class HomeController {
-	
-	
+
 	@Autowired
 	UserRepository userRepository;
-	
+
 	@Autowired
 	BoardRepository boardRepository;
-	
+
 	@Autowired
 	FileRepository fileRepository;
-	
+
 	@Autowired
 	HttpSession session;
-	
-	//이미지 파일 업로드 경로
-	final String uploadPath = "/covers";
-	
 
-	//======페이지 이동 START
-	@RequestMapping(value = "/", method = RequestMethod.GET)	//로그인 전 메인 페이지
+	// 이미지 파일 업로드 경로
+	final String uploadPath = "/covers";
+
+	// ======페이지 이동 START
+	@RequestMapping(value = "/", method = RequestMethod.GET) // 로그인 전 메인 페이지
 	public String home() {
 		return "home";
 	}
-	
-	@RequestMapping(value = "/main", method = RequestMethod.GET)	//로그인 후 메인 페이지
+
+	@RequestMapping(value = "/main", method = RequestMethod.GET) // 로그인 후 메인 페이지
 	public String main() {
 		return "main";
 	}
-	
+
 	@RequestMapping(value = "/loginpage", method = RequestMethod.GET)
 	public String loginpage() {
 		return "login";
 	}
-	
+
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String join() {
 		return "join";
@@ -70,35 +69,22 @@ public class HomeController {
 
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public String mypage() {
-		String id = (String)session.getAttribute("loginId");
+		String id = (String) session.getAttribute("loginId");
 		ArrayList<Board> list = boardRepository.boardList(id);
 		session.setAttribute("boardlist", list);
 		return "mypage";
 	}
 
-	/*@RequestMapping(value = "/shared", method = RequestMethod.GET)
-	public String shared() {
-		ArrayList<Board> list = boardRepository.list();
-		System.out.println(list);
-		session.setAttribute("boardList", list);
-		return "shared";
-	}*/
-	
 	@RequestMapping(value = "/shared", method = RequestMethod.GET)
 	public String shared() {
 		ArrayList<Board> list = boardRepository.list();
+
 		session.setAttribute("boardList", list);
-		
-		for(Board board : list) {
-			System.out.println("test for-each boardnum : " + board.getBoardnum());
-			
-			List<Reply> replylist = boardRepository.replylist(board.getBoardnum());
-			
-			System.out.println("test for-each replylist : " + replylist);
-			
-			session.setAttribute("replylist", replylist);
-		}
-		
+
+		List<Reply> replyAll = boardRepository.replyAll();
+
+		session.setAttribute("replyAll", replyAll);
+
 		return "shared";
 	}
 
@@ -111,20 +97,18 @@ public class HomeController {
 	public String testing() {
 		return "aboutus";
 	}
-	//======페이지 이동 END
-	
-	
-	//=====테스트 페이지 START
+	// ======페이지 이동 END
+
+	// =====테스트 페이지 START
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public String test() {
 		return "testing";
 	}
-	
+
 	@RequestMapping(value = "/test2", method = RequestMethod.GET)
 	public String test2() {
 		return "testing2";
 	}
-	//======테스트 페이지 END
+	// ======테스트 페이지 END
 
-	
 }

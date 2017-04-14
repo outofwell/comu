@@ -136,8 +136,6 @@ public class BoardController {
 		
 		reply.setUserid(loginId);
 		
-		System.out.println("댓글 : " + reply);
-		
 		boardRepository.replyWrite(reply);
 		
 		return "redirect:shared";

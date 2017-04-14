@@ -36,6 +36,9 @@ public interface BoardDAO {
 	// 댓글 등록
 	public int replyWrite(Reply reply) throws Exception;
 	
+	// 댓글 전체 가져오기
+	public List<Reply> replyAll() throws Exception;
+	
 	// 댓글 가져오기
 	public List<Reply> replylist(int boardnum) throws Exception;
 

@@ -100,6 +100,12 @@
 			replynum = #{replynum}
 	</update>
 	
+	<!-- 댓글 전체 가져오기 -->
+	<select id="replyAll" resultType="Reply">
+		SELECT * FROM cm_reply
+		ORDER BY inputdate
+	</select>
+	
 	<!-- 댓글 불려오기 -->
 	<select id="replylist" resultType="Reply" parameterType="int">
 		SELECT * FROM cm_reply

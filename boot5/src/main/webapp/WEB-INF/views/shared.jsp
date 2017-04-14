@@ -90,12 +90,15 @@
 															style="width: 400px; display: inline;">
 														<td><button>확인</button></td>
 													</tr> -->
-													
-													<c:forEach var="reply" items="${replylist}">
-														<tr>
-															<td>${reply.userid} </td>
-															<td>${reply.replytext} </td>
-														</tr>
+
+													<c:forEach var="reply" items="${replyAll}">
+														<script>console.log(${reply.boardnum}+"   "+${board.boardnum});</script>
+														<c:if test="${reply.boardnum == board.boardnum}">
+															<tr>
+																<td>${reply.userid}</td>
+																<td>${reply.replytext}</td>
+															</tr>
+														</c:if>
 													</c:forEach>
 												</table>
 
