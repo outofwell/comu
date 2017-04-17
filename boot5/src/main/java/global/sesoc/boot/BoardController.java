@@ -162,7 +162,7 @@ public class BoardController {
 
 	// 좋아요 등록 int like(Like like) return "result";
 	@RequestMapping(value = "/like", method = RequestMethod.GET)
-	public String like(Like like) {
+	public @ResponseBody String like(Like like) {
 		boardRepository.like(like);
 		return "result";
 	}
@@ -190,7 +190,7 @@ public class BoardController {
 
 	// 구독 int writeSubscribe(Subscribe subscribe) return "result"
 	@RequestMapping(value = "/writeSubscribe", method = RequestMethod.GET)
-	public String writeSubscribe(Subscribe subscribe) {
+	public @ResponseBody String writeSubscribe(Subscribe subscribe) {
 		boardRepository.writeSubscribe(subscribe);
 		return "result";
 	}

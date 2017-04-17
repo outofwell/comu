@@ -19,6 +19,47 @@
 }
 </style>
 
+<script type="text/javascript" src="resources/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	function subscribe() {
+		alert("sub");
+		
+		var id = document.getElementById("test2").value;
+		
+		alert(id);
+		
+		/* $.ajax({
+			method : "GET"
+			, url : "writeSubscribe"
+			, data : {userid : "", sub_userid : "${loginId}"}
+			, success : function(){
+				alert("sub success");
+			}
+			, error : function(){
+				alert("sub error");
+			}
+		}); */
+	}
+
+	function like() {
+		alert("like");
+		
+		/* $.ajax({
+			method : "GET"
+			, url : "like"
+			<c:forEach var="board" items="${boardList}">
+			, data : {boardnum : "", userid : "", like_userid : "${loginId}"}
+			</c:forEach>
+			, success : function(){
+				alert("like success");
+			}
+			, error : function(){
+				alert("like error");
+			}
+		}); */
+	}
+</script>
+
 </head>
 
 <body class="index-page">
@@ -65,7 +106,6 @@
 										<div id="col${board.boardnum}" class="panel-collapse collapse"
 											role="tabpanel" aria-labelledby="head${board.boardnum}">
 											<div class="panel-body">
-
 												<table>
 													<tr>
 														<td colspan='2'><textarea class="form-control"
@@ -76,8 +116,10 @@
 																style="width: 500px;">내용: ${board.content}</textarea></td>
 													</tr>
 													<tr>
-														<td><button class="btn btn-primary btn-xs">subscribe</button>
-															<button class="btn btn-primary btn-xs">like</button></td>
+														<td><button class="btn btn-primary btn-xs"
+																onclick="return subscribe()">subscribe</button>
+															<button class="btn btn-primary btn-xs"
+																onclick="return like()">like</button></td>
 													</tr>
 													<tr>
 														<td id="imgtable" class='border' style="padding: 5px;">reply
@@ -92,16 +134,15 @@
 													</tr> -->
 
 													<c:forEach var="reply" items="${replyAll}">
-														<script>console.log(${reply.boardnum}+"   "+${board.boardnum});</script>
 														<c:if test="${reply.boardnum == board.boardnum}">
 															<tr>
 																<td>${reply.userid}</td>
 																<td>${reply.replytext}</td>
 															</tr>
 														</c:if>
+														<input type="hidden" id="test2" name="test2" value="${board.boardnum}" />
 													</c:forEach>
 												</table>
-
 
 												<form action="replyWrite" method="get">
 													<input type="text" class="form-control" placeholder="reply"
