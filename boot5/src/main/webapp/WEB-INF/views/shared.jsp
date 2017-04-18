@@ -21,43 +21,52 @@
 
 <script type="text/javascript" src="resources/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
-	function subscribe() {
-		alert("sub");
-		
-		var id = document.getElementById("test2").value;
-		
-		alert(id);
-		
-		/* $.ajax({
-			method : "GET"
-			, url : "writeSubscribe"
-			, data : {userid : "", sub_userid : "${loginId}"}
-			, success : function(){
-				alert("sub success");
-			}
-			, error : function(){
-				alert("sub error");
-			}
-		}); */
-	}
+	$(document).ready(function() {
+		$("button.sub").on("click", function() {
+			var subuserid = $(this).attr("dd-mm");
 
-	function like() {
-		alert("like");
-		
-		/* $.ajax({
-			method : "GET"
-			, url : "like"
-			<c:forEach var="board" items="${boardList}">
-			, data : {boardnum : "", userid : "", like_userid : "${loginId}"}
-			</c:forEach>
-			, success : function(){
-				alert("like success");
-			}
-			, error : function(){
-				alert("like error");
-			}
-		}); */
-	}
+			$.ajax({
+				method : "GET",
+				url : "writeSubscribe",
+				data : {
+					userid : "${loginId}",
+					sub_userid : subuserid
+				},
+				success : function() {
+					alert("sub success");
+					$("button.sub").prop("disabled", true);
+				},
+				error : function() {
+					alert("sub error");
+					$("button.sub").prop("disabled", false);
+				}
+			});
+		});
+
+		$("button.like").on("click", function() {
+			var board_num = $(this).attr("dd-mm");
+
+			var likeid = $(this).attr("likeid");
+
+			$.ajax({
+				method : "GET",
+				url : "like",
+				data : {
+					boardnum : board_num,
+					userid : "${loginId}",
+					like_userid : likeid
+				},
+				success : function() {
+					alert("like success");
+					$("button.like").prop("disabled", true);
+				},
+				error : function() {
+					alert("like error");
+					$("button.like").prop("disabled", true);
+				}
+			});
+		});
+	});
 </script>
 
 </head>
@@ -116,10 +125,10 @@
 																style="width: 500px;">내용: ${board.content}</textarea></td>
 													</tr>
 													<tr>
-														<td><button class="btn btn-primary btn-xs"
-																onclick="return subscribe()">subscribe</button>
-															<button class="btn btn-primary btn-xs"
-																onclick="return like()">like</button></td>
+														<td><button class="btn btn-primary btn-xs sub"
+																dd-mm="${board.userid}">subscribe</button>
+															<button class="btn btn-primary btn-xs like"
+																dd-mm="${board.boardnum}" likeid="${board.userid}">like</button></td>
 													</tr>
 													<tr>
 														<td id="imgtable" class='border' style="padding: 5px;">reply
@@ -140,7 +149,6 @@
 																<td>${reply.replytext}</td>
 															</tr>
 														</c:if>
-														<input type="hidden" id="test2" name="test2" value="${board.boardnum}" />
 													</c:forEach>
 												</table>
 
