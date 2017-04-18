@@ -34,13 +34,13 @@
 				},
 				success : function() {
 					alert("sub success");
-					$("button.sub").prop("disabled", true);
 				},
 				error : function() {
 					alert("sub error");
-					$("button.sub").prop("disabled", false);
 				}
 			});
+
+			$(this).prop("disabled", true);
 		});
 
 		$("button.like").on("click", function() {
@@ -58,13 +58,13 @@
 				},
 				success : function() {
 					alert("like success");
-					$("button.like").prop("disabled", true);
 				},
 				error : function() {
 					alert("like error");
-					$("button.like").prop("disabled", true);
 				}
 			});
+			
+			$(this).prop("disabled", true);
 		});
 	});
 </script>
