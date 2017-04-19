@@ -18,7 +18,7 @@
 			//fileList START======
 			$.ajax({
 					type : "get",
-					url : "fileList",
+					url : "userlist",
 					success : function(resp) {
 						var msg = "<table class='table' id='loadlist'><tr>";
 						$.each(
