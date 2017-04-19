@@ -35,6 +35,8 @@
 		SELECT * FROM cm_board b, cm_file f
 		WHERE
 			b.filenum = f.filenum
+		AND
+			b.shared = 'share'
 		ORDER BY boardnum DESC
 	</select>
 	
