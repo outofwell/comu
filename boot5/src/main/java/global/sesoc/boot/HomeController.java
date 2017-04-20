@@ -95,7 +95,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/aboutus", method = RequestMethod.GET)
 	public String testing() {
-		return "aboutus";
+		return "aboutusdesign";
 	}
 	// ======페이지 이동 END
 

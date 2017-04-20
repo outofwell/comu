@@ -23,14 +23,14 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("button.sub").on("click", function() {
-			var subuserid = $(this).attr("dd-mm");
+			var board_id = $(this).attr("dd-mm");
 
 			$.ajax({
 				method : "GET",
 				url : "writeSubscribe",
 				data : {
-					userid : "${loginId}",
-					sub_userid : subuserid
+					userid : board_id,
+					sub_userid : "${loginId}"
 				},
 				success : function() {
 					alert("sub success");
@@ -46,15 +46,15 @@
 		$("button.like").on("click", function() {
 			var board_num = $(this).attr("dd-mm");
 
-			var likeid = $(this).attr("likeid");
+			var board_id = $(this).attr("likeid");
 
 			$.ajax({
 				method : "GET",
 				url : "like",
 				data : {
 					boardnum : board_num,
-					userid : "${loginId}",
-					like_userid : likeid
+					userid : board_id,
+					like_userid : "${loginId}"
 				},
 				success : function() {
 					alert("like success");
